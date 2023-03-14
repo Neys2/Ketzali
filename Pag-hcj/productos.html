@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css"> 
+    <script src="script.js" defer></script>
+</head>
+<body>
+<!--header inicia -->
+<header class="header">
+    <a href="#" class="logo">
+        <img src="imagen/logo.png" alt="">
+        <a class= ketzali href="#inicio">Ketzali</a>
+    </a>
+
+    <nav class="navbar">
+        <a href="index.html">inicio</a>
+        <a href="#nosotros">nosotros</a>
+        <a href="productos.html">productos</a>
+        <a href="#perfil">perfil</a>
+    </nav>
+
+    <div class="icons">
+        <div class="fas fa-search" id="search-btn"></div>
+        <div class="fas fa-shopping-cart" id="cart-btn"></div>
+        <div class="fas fa-bars" id="menu-btn"></div>
+    </div>
+</header>
+<!--header acaba -->
+
+<!--Presentacion de productos -->
+<div>
+<div class="contenedor-product" id="contenedor-p">
+<div class="itemp" data-name="p-1">
+    <figure>
+        <img class="imagen-p" src="imagen/Productos/1.png" alt="producto 1">
+    </figure>
+    <div class="informacion">
+        <p>Crema para la piel</p>
+        <p class="precio">$40<span>.99</span></p>
+        <div class="boton-p">
+            <button>Detalles</button>
+            <button>Agregar a carrito</button>
+        </div>
+    </div>
+</div>
+<div class="itemp" data-name="p-2">
+    <figure>
+        <img class="imagen-p" src="imagen/Productos/2.png" alt="producto 2">
+    </figure>
+    <div class="informacion">
+        <p>Protector solar</p>
+        <p class="precio">$34<span>.99</span></p>
+        <div class="boton-p">
+            <button>Detalles</button>
+            <button>Agregar a carrito</button>
+        </div>
+    </div>
+</div>
+<div class="itemp" data-name="p-3">
+    <figure>
+        <img class="imagen-p" src="imagen/Productos/3.png" alt="producto 3">
+    </figure>
+    <div class="informacion">
+        <p>Crema para la cara</p>
+        <p class="precio">$64<span>.99</span></p>
+        <div class="boton-p">
+            <button>Agregar a carrito</button>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+<!--Informacion adicional del producto-->
+<div class="products-preview">
+    <div class="preview" data-target="p-1">
+        <i class="fas fa-times"></i>
+        <img src="imagen/Productos/1.png" alt="">
+        <h3>Crema para la piel</h3>
+        <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+        </div>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+        <div class="precio-preview">$64.99</div>
+        <div class="boton-preview">
+            <a href="#" class="buy">Agregar a carrito</a>
+        </div>
+    </div>
+    <div class="preview" data-target="p-2">
+        <i class="fas fa-times"></i>
+        <img src="imagen/Productos/2.png" alt="">
+        <h3>Protector solar</h3>
+        <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+        </div>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+        <div class="precio-preview">$39.99</div>
+        <div class="boton-preview">
+            <a href="#" class="buy">Agregar a carrito</a>
+        </div>
+    </div>
+    <div class="preview" data-target="p-3">
+        <i class="fas fa-times"></i>
+        <img src="imagen/Productos/3.png" alt="">
+        <h3>Crema para la cara</h3>
+        <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+        </div>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+        <div class="precio-preview">$64.99</div>
+        <div class="boton-preview">
+            <a href="#" class="buy">Agregar a carrito</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Inicia sesion</title>
 </head>
 
@@ -12,9 +14,9 @@
     <header class="header">
         <a href="#" class="logo">
             <img src="imagen/logo.png" alt="">
-            <a class= ketzali href="index.html">Ketzali Piel</a>
+            <a class=ketzali href="index.html">Ketzali Piel</a>
         </a>
-    
+
         <nav class="navbar">
             <a href="index.html">inicio</a>
             <a href="#nosotros">nosotros</a>
@@ -22,7 +24,7 @@
             <a href="#perfil">perfil</a>
             <a href="#login">login</a>
         </nav>
-    
+
         <div class="icons">
             <div class="fas fa-search" id="search-btn"></div>
             <div class="fas fa-shopping-cart" id="cart-btn"></div>
@@ -30,16 +32,16 @@
         </div>
     </header>
 
-    <div>
-        <h2>Iniciar sesion</h2>
+    <section class="formulario">
+        
         <form action="#" method="post">
-            <label for="usuario">Nombre de usuario</label><br>
-            <input type="text" name="usuario" id="usuario"><br>
-            <label for="contrasenia">Contraseña</label><br>
-            <input type="password" name="contrasenia" id="contrasenia"><br><br>
+            <h2>Iniciar sesion</h2><br>
+            <input class="control" type="text" name="usuario" id="usuario" placeholder="Usuario"><br>
+            <input class="control" type="password" name="contrasenia" id="contrasenia" placeholder="Contraseña"><br><br>
             <input type="submit" value="Iniciar sesion">
         </form>
-    </div>
-    
+    </section>
+
 </body>
+
 </html>

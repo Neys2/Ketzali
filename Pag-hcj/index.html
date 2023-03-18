@@ -27,6 +27,7 @@
         <a href="#nosotros">nosotros</a>
         <a href="#productos">productos</a>
         <a href="#perfil">perfil</a>
+        <a href="login.html">login</a>
     </nav>
 
     <div class="icons">
@@ -70,9 +71,19 @@
 <footer>
     <div>
         <h5>¿Tienes dudas?</h5>
-        <form action="">
-            
-        </form>
+        <p>¡Comunicate con nosotras !</p>
+        <form action="/submit-form" method="post">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required><br>
+          
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+          
+            <label for="mensaje">Mensaje:</label><br>
+            <textarea id="mensaje" name="mensaje" rows="5" cols="40" required></textarea><br>
+          
+            <input type="submit" value="Enviar">
+          </form>
     </div>
 </footer>
 </html>

@@ -1,5 +1,7 @@
 let preveiwContainer = document.querySelector('.products-preview');
 let previewBox = preveiwContainer.querySelectorAll('.preview');
+let input = preveiwContainer.querySelectorAll('.input-quantity');
+
 
 document.querySelectorAll('.contenedor-product .itemp .informacion .botonp .botondp').forEach(botondp =>{
   botondp.onclick = () =>{

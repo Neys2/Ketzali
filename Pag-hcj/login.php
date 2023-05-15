@@ -18,7 +18,7 @@ $nr = mysqli_num_rows($query);
 
 if($nr > 0 && $nombre=="admin18@gmail.com"){
     
-    header("location:\Ketzali-main2\Pag-hcj\Admin\admin.php");
+    header("location:\Ketzali-main\Pag-hcj\Admin\admin.php");
     echo "Bienvenido: ".$nombre;
     $_SESSION['id_usuario'] = $nr['ID_U'];
     

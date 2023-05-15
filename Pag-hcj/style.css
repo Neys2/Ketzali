@@ -587,3 +587,62 @@ font-family: 'Nunito', sans-serif;*/
  .comunicate input[type="submit"]:hover {
    background-color: #711e2e;
  }
+
+ .barraDeUsuario{
+   margin-top: 93px;
+   background: #e4a0a5;
+   max-width: 25%;
+   min-height: 86.5vh;
+   padding: 0;
+   float: left;
+}
+
+.barraDeUsuario a{
+   color: #A94048;
+   font-size: large;
+}
+
+.barraDeUsuario nav a {
+   display: block;
+   padding: 20px;
+   font-family: Roboto, sans-serif;
+   font-weight: 500;
+   border-bottom: 1px solid rgba(255, 255, 255, 0.555);
+}
+
+.barraDeUsuario nav a:hover {
+   background-color: #F7E2E5;
+   text-decoration: none;
+}
+.dataArea{
+   padding: 5%;
+   padding-top: none;
+   background-color: #eecfe1;
+   margin-top: 50px;
+   width:87.5%;
+   min-height: 86.5vh;
+   float: left;
+}
+.dataArea p {
+   font-size: large;
+   color: #640021;
+   text-align:left;
+   padding: 20px;
+}
+.dataArea h3 {
+   font-size: large;
+   color: #640021;
+   text-align:center;
+   padding: 20px;
+}
+.pSection{
+   border-bottom: 1px solid  rgba(255, 255, 255, 0.555);
+}
+.alerta{
+   text-align: center;
+   color: red;
+}
+.success{
+   text-align: center;
+   color: green;
+}

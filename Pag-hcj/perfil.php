@@ -1,3 +1,15 @@
+<?php
+
+include("conexion.php");
+$db = new Conexion();
+$con = $db->conectar();
+
+
+$sql = $con->prepare("SELECT ID_A, nombreA, precio, descripcion FROM articulo ");
+$sql->execute();
+$resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+?>
 <!DOCTYPE html>
 <HTMl:5>
     <head> 
@@ -11,20 +23,30 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap" rel="stylesheet">
     
-        <!--<link rel="stylesheet" href="style.css"> -->
+<!--
+            <link rel="stylesheet" href="style.css"> 
+        session_start();
+if(isset($SESSION['id_usuario'])){
+    header("Location: index.php");
+}else{
+    header("Location:login.php");
+}
+$iduser = $_SESSION['id_usuario'];
+    
+-->
        
     </head>
     <body>
         <header class="header">
             <a href="#" class="logo">
-                <img src="imagen/logo.png" alt="">
-                <a class= ketzali href="#inicio">Ketzali Piel</a>
+                <img src="imagen/logo.png" alt="" href="index.php">
+                <a class= ketzali href="index.php">Ketzali Piel</a>
             </a>
         
             <nav class="navbar">
-                <a href="index.html">inicio</a>
+                <a href="index.php">inicio</a>
                 <a href="#nosotros">nosotros</a>
-                <a href="#productos">productos</a>
+                <a href="productos.php">productos</a>
                 <a href="perfil.php">perfil</a>
             </nav>
         
@@ -45,9 +67,25 @@
             </nav>
 
         </div>
-
         <div class="dataArea">
-            <p>CONTENIDO</p>
+            <div class="pSection">
+                <h3>DATOS PERSONALES</h3>
+                <p>Nombre(s):</p>
+                <p>Apellidos:</p>
+                <p>Telefono:</p>
+                <p>Correo:</p>
+                <hr>
+            </div>
+            <div class="pSection">
+                <h3>DOMICILIOS</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia ipsum</p>
+                <hr>
+            </div>
+            <div class="pSection">
+                <h3>INFORMACION DE PAGO</h3>
+                <p>Tarjeta: :D</p>
+                <hr>
+            </div>
         </div>
     </body>
 

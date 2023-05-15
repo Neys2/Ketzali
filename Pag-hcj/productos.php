@@ -30,14 +30,14 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 <header class="header">
     <a href="#" class="logo">
         <img src="imagen/logo.png" alt="">
-        <a class= ketzali href="#inicio">Ketzali</a>
+        <a class= ketzali href="index.php">Ketzali</a>
     </a>
 
     <nav class="navbar">
-        <a href="index.html">inicio</a>
+        <a href="index.php">inicio</a>
         <a href="#nosotros">nosotros</a>
-        <a href="#productos">productos</a>
-        <a href="#perfil">perfil</a>
+        <a href="productos.php">productos</a>
+        <a href="perfil.php">perfil</a>
     </nav>
 
     <div class="icons">

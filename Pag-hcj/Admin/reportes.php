@@ -140,7 +140,7 @@ LIMIT 1");
 						<h3>Productos que se han vendido en el día</h3>
 						<input type="search" id="busqueda" placeholder="Buscar..." oninput="reiniciarTabla()">
                         <i class='bx bx-search' onclick="buscar()"></i>
-						<a href="#" class="btn-download" id="toPDF" onclick="window.print()">
+						<a href="#" class="btn-download" id="toPDF" onclick="pdf()">
 							<i class='bx bxs-cloud-download' ></i>
 							<span class="text">Descargar</span>
 						</a>
@@ -177,7 +177,7 @@ LIMIT 1");
 						<h3>Productos que hay en inventario</h3>
 						<input type="search" id="busqueda2" placeholder="Buscar..." oninput="reiniciarTabla2()">
                         <i class='bx bx-search' onclick="buscar2()" ></i>
-						<a href="#" class="btn-download" id="toPDF2" onclick="window.print()">
+						<a href="#" class="btn-download" id="toPDF2" onclick="pdf2()">
 							<i class='bx bxs-cloud-download' ></i>
 							<span class="text">Descargar</span>
 						</a>
@@ -244,6 +244,6 @@ LIMIT 1");
 	<!-- CONTENT -->
 	
 
-	<script src="script.js"></script>
+	<script src="http://localhost/ketzali-main/Pag-hcj/Admin/script.js"></script>
 </body>
 </html>

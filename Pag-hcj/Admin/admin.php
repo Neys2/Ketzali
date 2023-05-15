@@ -79,7 +79,7 @@ $consulta5 = mysqli_query($conexion, "SELECT nombreA FROM articulo WHERE cantida
 				</a>
 			</li>
 			<li>
-				<a href="#" class="logout">
+				<a href="#" class="logout" >
 					<i class='bx bxs-log-out-circle' ></i>
 					<span class="text">Cerrar Sesion</span>
 				</a>
@@ -199,6 +199,6 @@ $consulta5 = mysqli_query($conexion, "SELECT nombreA FROM articulo WHERE cantida
 	<!-- CONTENT -->
 	
 
-	<script src="script.js"></script>
+	<script src="http://localhost/ketzali-main/Pag-hcj/Admin/script.js"></script>
 </body>
 </html>

@@ -102,7 +102,7 @@ const toPDF = function (customers_table) {
     }, 200);
 }
 
-pdf_btn.onclick = () => {
+function pdf() {
     toPDF(customers_table);
 }
 
@@ -124,30 +124,8 @@ const toPDF2 = function (customers_table2) {
     }, 200);
 }
 
-pdf_btn2.onclick = () => {
+function pdf2(){
     toPDF2(customers_table2);
-}
-
-const toPDF3 = function (customers_table3) {
-    const html_code = `
-    <link rel="stylesheet" href="style.css">
-    <main>
-	<h3>Producto que más se vendio en el día</h3>
-	<table>${customers_table3.innerHTML}</table>
-	</main>
-    `;
-
-    const new_window = window.open();
-    new_window.document.write(html_code);
-
-    setTimeout(() => {
-        new_window.print();
-        new_window.close();
-    }, 200);
-}
-
-pdf_btn3.onclick = () => {
-    toPDF3(customers_table3);
 }
 
 //Buscar con input en reportes
@@ -220,3 +198,5 @@ function reiniciarTabla2() {
 	  filas[i].style.display = "";
 	}
   }
+
+  

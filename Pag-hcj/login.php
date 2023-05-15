@@ -16,7 +16,13 @@ $pass = $_POST["contrasenia"];
 $query = mysqli_query($conn,"SELECT * FROM usuario WHERE correoU = '".$nombre."' and contrasena = '".$pass."'");
 $nr = mysqli_num_rows($query);
 
-if($nr > 0){
+if($nr > 0 && $nombre=="admin18@gmail.com"){
+    
+    header("location:\Ketzali-main2\Pag-hcj\Admin\admin.php");
+    echo "Bienvenido: ".$nombre;
+    $_SESSION['id_usuario'] = $nr['ID_U'];
+    
+}else if($nr > 0 ){
     
     header("location:perfil.php");
     echo "Bienvenido: ".$nombre;

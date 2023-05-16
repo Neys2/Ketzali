@@ -60,7 +60,6 @@ $iduser = $_SESSION['id_usuario'];
 
             <nav class="navbar">
                 <a href="../index.php">inicio</a>
-                <a href="#nosotros">nosotros</a>
                 <a href="../productos.php">productos</a>
             </nav>
 

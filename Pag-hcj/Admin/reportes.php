@@ -53,24 +53,6 @@ LIMIT 1");
 					<span class="text">Mi tienda</span>
 				</a>
 			</li>
-			<li>
-				<a href="#">
-					<i class='bx bxs-doughnut-chart' ></i>
-					<span class="text">Analitica</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<i class='bx bxs-message-dots' ></i>
-					<span class="text">Mensaje</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<i class='bx bxs-group' ></i>
-					<span class="text">Equipo</span>
-				</a>
-			</li>
 			<li class="active">
 				<a href="#">
 					<i class='bx bxs-report' ></i>

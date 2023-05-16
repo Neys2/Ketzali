@@ -1,5 +1,8 @@
+<?php
 
-
+include 'conexion.php';
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,16 +36,17 @@ if(!isset($SESSION['id_usuario'])){
     <header class="header">
         <a href="#" class="logo">
             <img src="imagen/logo.png" alt="">
-            <a class=ketzali href="index.php">Ketzali</a>
+            <a class=ketzali href="index.php">Ketzali Piel</a>
         </a>
 
         <nav class="navbar">
             <a href="index.php">inicio</a>
-            <a href="#nosotros">nosotros</a>
             <a href="productos.php">productos</a>
             <?php
-            if(session_status() == PHP_SESSION_NONE){
+            if(!isset($_SESSION['id_usuario']) || empty($_SESSION['id_usuario'])){
                 echo "<a href='login.php'>login</a>";
+            }else {
+                // La sesión está iniciada, no muestra nada de login
             }
             ?>
         </nav>
@@ -51,7 +55,16 @@ if(!isset($SESSION['id_usuario'])){
             <div class="fas fa-search" id="search-btn"></div>
             <div class="fas fa-shopping-cart" id="cart-btn"></div>
             <div class="fas fa-bars" id="menu-btn"></div>
-            <div class = "fas fa-circle-user" href = "perfil.php"></div> 
+            <?php
+            if(!isset($_SESSION['id_usuario']) || empty($_SESSION['id_usuario'])){
+                echo "<div class = 'fas fa-circle-user' ></div>";
+            }else {
+                // La sesión está iniciada, muestra info de perfil
+                echo "<a href='Usuario/perfil.php'>";
+                echo "<div class = 'fas fa-circle-user'></div>";
+                echo "</a>";
+            }
+            ?>
         </div>
     </header>
     <!--header acaba -->

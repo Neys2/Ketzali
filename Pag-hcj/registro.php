@@ -12,10 +12,14 @@ if(!empty($_POST["registro"])){
         $contrasenia = $_POST["contraseniaR"];
         $db = new Conexion();
         $con = $db->conectar();
-        $sql = $con->prepare("INSERT INTO usuario(nombre,contrasenia,correo)values('$nombre' '$apellido','$contrasenia','$correo')");
-        $sql->execute();
-        if ($sql == 1) {
+        $sql = $con->prepare("INSERT INTO usuario(ID_U,nombreU,contrasena,correoU,telefono,numTarjeta,domicilio)values('25','$nombre $apellido','$contrasenia','$correo','null','null','null')");
+        $band = $sql->execute();
+        var_dump($sql);
+        if ( $band == 1) {
+            session_start();
+            header("Location:Usuario/perfil.php");
             echo '<div class="success">Usuario registrado correctamente</div>';
+            
         } else {
             echo '<div class="alerta">Error al registrar usuario</div>';
         }

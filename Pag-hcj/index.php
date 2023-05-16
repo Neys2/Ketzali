@@ -40,7 +40,11 @@ if(!isset($SESSION['id_usuario'])){
             <a href="index.php">inicio</a>
             <a href="#nosotros">nosotros</a>
             <a href="productos.php">productos</a>
-            <a href="login.php">login</a>
+            <?php
+            if(session_status() == PHP_SESSION_NONE){
+                echo "<a href='login.php'>login</a>";
+            }
+            ?>
         </nav>
 
         <div class="icons">

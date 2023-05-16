@@ -1,10 +1,10 @@
 <?php
 
-require 'conexion.php';
-$db = new Conexion();
-$con = $db->conectar();
+include '../conexion.php';
+session_start();
 
 ?>
+
 
 <!DOCTYPE html>
 <HTMl:5>
@@ -13,7 +13,7 @@ $con = $db->conectar();
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>tienda en linea de cuidado de piel</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="..\style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,22 +24,22 @@ $con = $db->conectar();
     </head>
     <body>
         <header class="header">
-            <a href="#" class="logo">
+            <a href="../index.php" class="logo">
                 <img src="imagen/logo.png" alt="">
-                <a class= ketzali href="index.php">Ketzali Piel</a>
+                <a class= ketzali href="../index.php">Ketzali Piel</a>
             </a>
         
             <nav class="navbar">
-                <a href="index.php">inicio</a>
+                <a href="../index.php">inicio</a>
                 <a href="#nosotros">nosotros</a>
-                <a href="productos.php">productos</a>
-                <a href="perfil.php">perfil</a>
+                <a href="../productos.php">productos</a>
             </nav>
         
             <div class="icons">
                 <div class="fas fa-search" id="search-btn"></div>
                 <div class="fas fa-shopping-cart" id="cart-btn"></div>
                 <div class="fas fa-bars" id="menu-btn"></div>
+                <div class = "fas fa-circle-user" href = "perfil.php"></div>
             </div>
         </header>
 
@@ -55,9 +55,15 @@ $con = $db->conectar();
         </div>
 
         <div class="dataArea">
-            <p>CONTENIDO</p>
-            
-    </div>
+            <h3>EDITAR INFORMACION</h3>
+            <form action="#" method="post">
+            <input class="control" type="text" name="nombre" id="nombre" placeholder="Nombre"><br>
+            <input class="control" type="text" name="apellido" id="apellido" placeholder="Apellido"><br>
+            <input class="control" type="text" name="usuarioR" id="usuarioR" placeholder="Correo"><br>
+            <input class="control" type="password" name="contraseniaR" id="contraseniaR" placeholder="Contraseña"><br><br>
+            <input class="boton" type="submit" value="Cambiar datos">
+        </form>
+        </div>
     </body>
 
 </HTML:5>

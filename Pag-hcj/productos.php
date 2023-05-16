@@ -37,13 +37,18 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
         <a href="index.php">inicio</a>
         <a href="#nosotros">nosotros</a>
         <a href="productos.php">productos</a>
-        <a href="perfil.php">perfil</a>
+        <?php
+            if(session_status() == PHP_SESSION_NONE){
+                echo "<a href='login.php'>login</a>";
+            }
+        ?>
     </nav>
 
     <div class="icons">
         <div class="fas fa-search" id="search-btn"></div>
         <div class="fas fa-shopping-cart" id="cart-btn"></div>
         <div class="fas fa-bars" id="menu-btn"></div>
+        <div class = "fas fa-circle-user" href = "perfil.php"></div>
     </div>
 </header>
 <!--header acaba -->

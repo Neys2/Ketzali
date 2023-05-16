@@ -1,5 +1,6 @@
 
-<?php
+
+<!--
 $dbhost = "localhost";
 $dbuser = "root";
 $dbpass = "";
@@ -10,28 +11,7 @@ if(!$conn)
 {
     die("No hay conexión: ".mysqli_connect_error());
 };
-$nombre = $_POST["correo"];
-$pass = $_POST["contrasenia"];
-
-$query = mysqli_query($conn,"SELECT * FROM usuario WHERE correoU = '".$nombre."' and contrasena = '".$pass."'");
-$nr = mysqli_num_rows($query);
-
-if($nr > 0 && $nombre=="admin18@gmail.com"){
-    
-    header("location:\Ketzali-main\Pag-hcj\Admin\admin.php");
-    echo "Bienvenido: ".$nombre;
-    $_SESSION['id_usuario'] = $nr['ID_U'];
-    
-}else if($nr > 0 ){
-    
-    header("location:perfil.php");
-    echo "Bienvenido: ".$nombre;
-    $_SESSION['id_usuario'] = $nr['ID_U'];
-    
-}elseif ($nr == 0){
-    echo "Error en los datos";
-};
-?>
+ -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -62,35 +42,24 @@ if($nr > 0 && $nombre=="admin18@gmail.com"){
             <div class="fas fa-search" id="search-btn"></div>
             <div class="fas fa-shopping-cart" id="cart-btn"></div>
             <div class="fas fa-bars" id="menu-btn"></div>
+            <div class = "fas fa-circle-user" href = "perfil.php"></div>
         </div>
     </header>
 
     <section class="formulario">
         
-        <form action="#" method="post">
+        <form action="loguear.php" method="post">
             <h2 class="formTitle">Iniciar sesion</h2><br>
             <input class="control" type="text" name="correo" id="correo" placeholder="Correo"><br>
             <input class="control" type="password" name="contrasenia" id="contrasenia" placeholder="Contraseña"><br><br>
             <input class="boton" type="submit" value="Iniciar sesion">
         </form>
+        
     </section>
      
     <section class="registro">
         
-        <form action="#" method="post">
-            <?php
-            $dbhost = "localhost";
-            $dbuser = "root";
-            $dbpass = "";
-            $dbname = "Piel";
-            
-            $conn = mysqli_connect($dbhost,$dbuser,$dbpass,$dbname);
-            if(!$conn)
-            {
-                die("No hay conexión: ".mysqli_connect_error());
-            };
-            include ("controlador_registro.php");
-            ?>
+        <form action="registro.php" method="post">
             <h2 class="formTitle">Registrate</h2><br>
             <input class="control" type="text" name="nombre" id="nombre" placeholder="Nombre"><br>
             <input class="control" type="text" name="apellido" id="apellido" placeholder="Apellido"><br>

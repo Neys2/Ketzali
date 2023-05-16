@@ -47,24 +47,6 @@ $consulta5 = mysqli_query($conexion, "SELECT nombreA FROM articulo WHERE cantida
 				</a>
 			</li>
 			<li>
-				<a href="#">
-					<i class='bx bxs-doughnut-chart' ></i>
-					<span class="text">Analitica</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<i class='bx bxs-message-dots' ></i>
-					<span class="text">Mensaje</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<i class='bx bxs-group' ></i>
-					<span class="text">Equipo</span>
-				</a>
-			</li>
-			<li>
 				<a href="reportes.php">
 					<i class='bx bxs-report' ></i>
 					<span class="text">Reportes</span>

@@ -31,7 +31,7 @@ if(!isset($SESSION['id_usuario'])){
 <body>
     <!--header inicia -->
     <header class="header">
-        <a href="#" class="logo">
+        <a href="index.php" class="logo">
             <img src="imagen/logo.png" alt="">
             <a class=ketzali href="index.php">Ketzali</a>
         </a>
@@ -51,7 +51,7 @@ if(!isset($SESSION['id_usuario'])){
             <div class="fas fa-search" id="search-btn"></div>
             <div class="fas fa-shopping-cart" id="cart-btn"></div>
             <div class="fas fa-bars" id="menu-btn"></div>
-            <div class = "fas fa-circle-user" href = "perfil.php"></div> 
+            <div class = "fas fa-circle-user" href = "Pag-hcj\Usuario\perfil.php" id="perfil-btn"></div> 
         </div>
     </header>
     <!--header acaba -->

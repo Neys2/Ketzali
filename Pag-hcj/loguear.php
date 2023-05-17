@@ -14,7 +14,7 @@ $sql = $con->prepare("SELECT * FROM usuario WHERE correoU = '".$nombre."' and co
         //var_dump($resultado[0]['ID_U']);
         if($resultado > 0 && $nombre=="admin18@gmail.com"){
             
-            header("location:..\Admin\admin.php");
+            header("location:Admin\admin.php");
             echo "Bienvenido: ".$nombre;
             
         }else if($resultado > 0 ){

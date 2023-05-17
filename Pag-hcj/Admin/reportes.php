@@ -68,7 +68,7 @@ LIMIT 1");
 				</a>
 			</li>
 			<li>
-				<a href="#" class="logout">
+				<a href="../Usuario/salir.php" class="logout">
 					<i class='bx bxs-log-out-circle' ></i>
 					<span class="text">Cerrar Sesion</span>
 				</a>

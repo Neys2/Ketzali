@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<!-- My CSS -->
+	<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
+	<title>Admin</title>
+</head>
+<body>
+
+
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="#" class="brand">
+			<i class='bx bxs-smile'></i>
+			<span class="text">Administrador</span>
+		</a>
+		<ul class="side-menu top">
+			<li>
+				<a href="admin.php">
+					<i class='bx bxs-dashboard' ></i>
+					<span class="text">Dashboard</span>
+				</a>
+			</li>
+			<li class="active">
+				<a href="#">
+					<i class='bx bxs-shopping-bag-alt' ></i>
+					<span class="text">Mi tienda</span>
+				</a>
+			</li>
+			<li>
+				<a href="reportes.php">
+					<i class='bx bxs-report' ></i>
+					<span class="text">Reportes</span>
+				</a>
+			</li>
+		</ul>
+		<ul class="side-menu">
+			<li>
+				<a href="#">
+					<i class='bx bxs-cog' ></i>
+					<span class="text">Configuracion</span>
+				</a>
+			</li>
+			<li>
+				<a href="../Usuario/salir.php" class="logout" >
+					<i class='bx bxs-log-out-circle' ></i>
+					<span class="text">Cerrar Sesion</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+	<!-- SIDEBAR -->
+
+
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu' ></i>
+			<form action="#">
+				
+			</form>
+			
+			
+			<a href="#" class="profile">
+				<img src="img/people.png">
+			</a>
+		</nav>
+		<!-- NAVBAR -->
+
+		<!-- MAIN -->
+		<main>
+			<div class="head-title">
+				<div class="left">
+					<h1>Mi tienda</h1>
+					<ul class="breadcrumb">
+						<li>
+							<a href="#">Mi tienda</a>
+						</li>
+						<li><i class='bx bx-chevron-right' ></i></li>
+						<li>
+							<a class="active" href="#">Principal</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+            <div class="admin-product-form-container">
+
+                <form method="post" enctype="multipart/form-data">
+                   <h3>Agregar nuevo producto</h3>
+                   <input type="text" placeholder="Ingrese nombre de producto" name="product_name" class="box">
+                   <input type="number" step="any" placeholder="Ingrese precio de producto" name="product_price" class="box">
+                   <input type="number" placeholder="Ingrese cantidad de producto" name="product_cantidad" class="box">
+                   <input type="text" placeholder="Ingrese descripción del producto" name="product_desc" class="box">
+                   <input type="file" accept="image/png, image/jpeg, image/jpg" name="product_image" class="box">
+                   <input type="submit" class="btn" name="add_product" value="Agregar Producto">
+                </form>
+          
+             </div>
+
+             <div class="product-display">
+                <table class="product-display-table">
+                   <thead>
+                   <tr>
+                      <th>Imagen</th>
+                      <th>Nombre</th>
+                      <th>Precio</th>
+                      <th>Cantidad</th>
+                      <th>Descripción</th>
+                      <th>Accion</th>
+                   </tr>
+                   </thead>
+                   <tr>
+                      <td><img src="" height="100" alt=""></td>
+                      <td>Pluma</td>
+                      <td>$10</td>
+                      <td>151</td>
+                      <td>Lorem</td>
+                      <td>
+                         <a href="admin_update.html" class="btn"> <i class="fas fa-edit"></i> Editar </a>
+                         <a href="mitienda.html" class="btn"> <i class="fas fa-trash"></i> Eliminar </a>
+                      </td>
+                   </tr>
+                </table>
+             </div>
+
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
+	
+
+	<script src="http://localhost/ketzali-main/Pag-hcj/Admin/sscript.js"></script>
+</body>
+</html>

@@ -41,9 +41,9 @@ $consulta5 = mysqli_query($conexion, "SELECT nombreA FROM articulo WHERE cantida
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="mitienda.php">
 					<i class='bx bxs-shopping-bag-alt' ></i>
-					<span class="text">Mi tienda</span>
+					<span class="text">Mi Tienda</span>
 				</a>
 			</li>
 			<li>
@@ -77,14 +77,6 @@ $consulta5 = mysqli_query($conexion, "SELECT nombreA FROM articulo WHERE cantida
 		<!-- NAVBAR -->
 		<nav>
 			<i class='bx bx-menu' ></i>
-			<form action="#">
-				<div class="form-input">
-					<input type="search" placeholder="Buscar...">
-					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
-				</div>
-			</form>
-			<input type="checkbox" id="switch-mode" hidden>
-			<label for="switch-mode" class="switch-mode"></label>
 			<a href="#" class="profile">
 				<img src="img/people.png">
 			</a>
@@ -181,6 +173,6 @@ $consulta5 = mysqli_query($conexion, "SELECT nombreA FROM articulo WHERE cantida
 	<!-- CONTENT -->
 	
 
-	<script src="http://localhost/ketzali-main/Pag-hcj/Admin/script.js"></script>
+	<script src="script.js"></script>
 </body>
 </html>

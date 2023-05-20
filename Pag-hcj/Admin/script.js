@@ -23,57 +23,10 @@ menuBar.addEventListener('click', function () {
 })
 
 
-
-
-
-
-
-const searchButton = document.querySelector('#content nav form .form-input button');
-const searchButtonIcon = document.querySelector('#content nav form .form-input button .bx');
-const searchForm = document.querySelector('#content nav form');
-
-searchButton.addEventListener('click', function (e) {
-	if(window.innerWidth < 576) {
-		e.preventDefault();
-		searchForm.classList.toggle('show');
-		if(searchForm.classList.contains('show')) {
-			searchButtonIcon.classList.replace('bx-search', 'bx-x');
-		} else {
-			searchButtonIcon.classList.replace('bx-x', 'bx-search');
-		}
-	}
-})
-
-
-
-
-
 if(window.innerWidth < 768) {
 	sidebar.classList.add('hide');
-} else if(window.innerWidth > 576) {
-	searchButtonIcon.classList.replace('bx-x', 'bx-search');
-	searchForm.classList.remove('show');
-}
+} 
 
-
-window.addEventListener('resize', function () {
-	if(this.innerWidth > 576) {
-		searchButtonIcon.classList.replace('bx-x', 'bx-search');
-		searchForm.classList.remove('show');
-	}
-})
-
-
-
-const switchMode = document.getElementById('switch-mode');
-
-switchMode.addEventListener('change', function () {
-	if(this.checked) {
-		document.body.classList.add('dark');
-	} else {
-		document.body.classList.remove('dark');
-	}
-})
 
 // 3. Converting HTML table to PDF
 
@@ -199,4 +152,36 @@ function reiniciarTabla2() {
 	}
   }
 
+  function buscaradd() {
+	// Obtiene el valor del input de búsqueda
+	var input = document.getElementById("busquedaadd");
+	var filtro = input.value.toUpperCase();
   
+	// Obtiene la tabla
+	var tabla = document.getElementById("productosadd");
+  
+	// Obtiene las filas de la tabla
+	var filas = tabla.getElementsByTagName("tr");
+  
+	// Recorre las filas de la tabla y oculta aquellas que no coinciden con la búsqueda
+	for (var i = 0; i < filas.length; i++) {
+		var celda = filas[i].getElementsByTagName("td")[1]; // Obtiene la segunda celda de la fila
+		if (celda) {
+		  if (celda.textContent.toUpperCase().indexOf(filtro) > -1) {
+			filas[i].style.display = "";
+		  } else {
+			filas[i].style.display = "none";
+		  }
+		}
+	  }
+  }
+
+  function reiniciarTablaadd() {
+	var tabla = document.getElementById("productosadd");
+	var filas = tabla.getElementsByTagName("tr");
+  
+	// Recorre las filas de la tabla y las muestra
+	for (var i = 0; i < filas.length; i++) {
+	  filas[i].style.display = "";
+	}
+  }

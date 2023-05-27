@@ -85,7 +85,7 @@ $data = "p-" . $id;
 
     ?>
     <figure>
-        <img class="imagen-p" src="<?php echo $imagen ?>" alt="producto 1">
+        <img class="imagen-p" src="<?php echo $imagen . '?v=' . time(); ?>" alt="producto 1">
     </figure>
     <div class="informacion">
         <p><?php echo $row['nombreA'] ?></p>
@@ -122,7 +122,7 @@ $data = "p-" . $id;
 
         ?>
 
-        <img src="<?php echo $imagen ?>" alt="">
+        <img src="<?php echo $imagen . '?v=' . time(); ?>" alt="">
         <h3><?php echo $row['nombreA'] ?></h3>
         <div class="stars">
             <i class="fas fa-star"></i>

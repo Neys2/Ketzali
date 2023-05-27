@@ -85,14 +85,14 @@ if(isset($_POST['update_product'])){
 					<span class="text">Reportes</span>
 				</a>
 			</li>
-		</ul>
-		<ul class="side-menu">
 			<li>
-				<a href="#">
-					<i class='bx bxs-cog' ></i>
-					<span class="text">Configuracion</span>
+				<a href="proveedores.php">
+					<i class='bx bxs-user' ></i>
+					<span class="text">Proveedores</span>
 				</a>
 			</li>
+		</ul>
+		<ul class="side-menu">
 			<li>
 				<a href="../Usuario/salir.php" class="logout" >
 					<i class='bx bxs-log-out-circle' ></i>
@@ -154,8 +154,8 @@ if(isset($_POST['update_product'])){
                 <form action="" method="post" enctype="multipart/form-data">
                    <h3 class="title">Actualizar Producto</h3>
                    <input type="text" class="box" name="product_name" value="<?php echo $row['nombreA']; ?>" placeholder="Introduce el nombre del producto">
-                   <input type="number" step="any" class="box" name="product_price" value="<?php echo $row['precio']; ?>" placeholder="Introduce el precio">
-                   <input type="number" min="0" class="box" name="product_cantidad" value="<?php echo $row['cantidad']; ?>" placeholder="Introduce la cantidad">
+                   <input type="number" min="1" step="any" class="box" name="product_price" value="<?php echo $row['precio']; ?>" placeholder="Introduce el precio">
+                   <input type="number" min="1" class="box" name="product_cantidad" value="<?php echo $row['cantidad']; ?>" placeholder="Introduce la cantidad">
                    <input type="text" class="box" name="product_desc" value="<?php echo $row['descripcion']; ?>" placeholder="Introduce la descripción del producto">
                    <input type="file" class="box" name="product_image"  accept="image/png, image/jpeg, image/jpg">
 				   <select name="opciones" class="box">

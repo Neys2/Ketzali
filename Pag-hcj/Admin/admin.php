@@ -52,14 +52,14 @@ $consulta5 = mysqli_query($conexion, "SELECT nombreA FROM articulo WHERE cantida
 					<span class="text">Reportes</span>
 				</a>
 			</li>
-		</ul>
-		<ul class="side-menu">
 			<li>
-				<a href="#">
-					<i class='bx bxs-cog' ></i>
-					<span class="text">Configuracion</span>
+				<a href="proveedores.php">
+					<i class='bx bxs-user' ></i>
+					<span class="text">Proveedores</span>
 				</a>
 			</li>
+		</ul>
+		<ul class="side-menu">
 			<li>
 				<a href="../Usuario/salir.php" class="logout" >
 					<i class='bx bxs-log-out-circle' ></i>

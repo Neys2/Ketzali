@@ -91,14 +91,14 @@ if(isset($_GET['delete'])){
 					<span class="text">Reportes</span>
 				</a>
 			</li>
-		</ul>
-		<ul class="side-menu">
 			<li>
-				<a href="#">
-					<i class='bx bxs-cog' ></i>
-					<span class="text">Configuracion</span>
+				<a href="proveedores.php">
+					<i class='bx bxs-user' ></i>
+					<span class="text">Proveedores</span>
 				</a>
 			</li>
+		</ul>
+		<ul class="side-menu">
 			<li>
 				<a href="../Usuario/salir.php" class="logout" >
 					<i class='bx bxs-log-out-circle' ></i>
@@ -159,8 +159,8 @@ if(isset($_GET['delete'])){
                 <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
                    <h3>Agregar nuevo producto</h3>
                    <input type="text" placeholder="Ingrese nombre de producto" name="product_name" class="box">
-                   <input type="number" step="any" placeholder="Ingrese precio de producto" name="product_price" class="box">
-                   <input type="number" placeholder="Ingrese cantidad de producto" name="product_cantidad" class="box">
+                   <input type="number" min="1" step="any" placeholder="Ingrese precio de producto" name="product_price" class="box">
+                   <input type="number" min="1" placeholder="Ingrese cantidad de producto" name="product_cantidad" class="box">
                    <input type="text" placeholder="Ingrese descripción del producto" name="product_desc" class="box">
                    <input type="file" accept="image/png, image/jpeg, image/jpg" name="product_image" class="box">
 				   <select name="opciones" class="box">

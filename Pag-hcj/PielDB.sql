@@ -59,7 +59,7 @@ foreign key (fkVenta) references Venta(ID_V) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 
-Insert into Usuario values(1,'Karen Carrillo Guzman','5654rgh65g','admi18@gmail.com','2294565467','7645673298745687','Mar #23');
+Insert into Usuario values(1,'Karen Carrillo Guzman','5654rgh65g','admin18@gmail.com','2294565467','7645673298745687','Mar #23');
 Insert into Usuario values(2,'Carlota Guzman Gamboa','78hgc54gy6','carlgg@gmail.com','2297647658','1285438766549876','Vista mar #87');
 Insert into Usuario values(3,'Tomas Carrillo Munive','8po7nhyt67','tomass2@gmail.com','2292456785','9977542765437654','Arboledas #45');
 Insert into Usuario values(4,'Arturo Avalos Guzman','976hvbg452','artur4@gmail.com','2298674376','2278564367895645','Jblobos #45');

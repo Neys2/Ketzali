@@ -185,3 +185,41 @@ function reiniciarTabla2() {
 	  filas[i].style.display = "";
 	}
   }
+
+  function buscarproveedor() {
+	// Obtiene el valor del input de búsqueda
+	var input = document.getElementById("busquedaaddpv");
+	var filtro = input.value.toUpperCase();
+  
+	// Obtiene la tabla
+	var tabla = document.getElementById("proveedoradd");
+  
+	// Obtiene las filas de la tabla
+	var filas = tabla.getElementsByTagName("tr");
+  
+	// Recorre las filas de la tabla y oculta aquellas que no coinciden con la búsqueda
+	for (var i = 0; i < filas.length; i++) {
+		var celda = filas[i].getElementsByTagName("td"); // Obtiene la segunda celda de la fila
+		for (var j = 0; j < celda.length; j++) {
+            if (celda[j]) {
+                var txtValue = celda[j].textContent || celda[j].innerText;
+                if (txtValue.toUpperCase().indexOf(filtro) > -1) {
+                    filas[i].style.display = "";
+                    break;
+                } else {
+                    filas[i].style.display = "none";
+                }
+            }
+        }
+	  }
+  }
+
+  function reiniciarprov() {
+	var tabla = document.getElementById("proveedoradd");
+	var filas = tabla.getElementsByTagName("tr");
+  
+	// Recorre las filas de la tabla y las muestra
+	for (var i = 0; i < filas.length; i++) {
+	  filas[i].style.display = "";
+	}
+  }

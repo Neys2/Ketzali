@@ -10,6 +10,7 @@ JOIN usuario ON venta.fkID_U = usuario.ID_U
 ORDER BY venta.fecha DESC
 LIMIT 10");
 $consulta5 = mysqli_query($conexion, "SELECT nombreA FROM articulo WHERE cantidad < 151 LIMIT 10");
+$noti = mysqli_query($conexion, "SELECT nombreA FROM articulo WHERE cantidad < 150");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -99,6 +100,28 @@ $consulta5 = mysqli_query($conexion, "SELECT nombreA FROM articulo WHERE cantida
 					</ul>
 				</div>
 			</div>
+			
+			<?php  
+				if ($noti && mysqli_num_rows($noti) > 0) {
+					$fils = mysqli_fetch_assoc($noti);
+			?>
+					<ul class="box-info" id="notification">
+						<li>
+							<p>El inventario de <?php echo $fils['nombreA']; ?> es bajo. Actualiza el inventario.</p>
+							<button class="btn-download" id="close-btn">Cerrar</button>
+						</li>
+					</ul>
+				<?php
+				}
+				?>
+			<script>
+				const cerrar = () => {
+					var notification = document.getElementById("notification");
+					notification.style.display = "none";
+				};
+
+				document.getElementById("close-btn").addEventListener("click", cerrar);
+			</script>
 
 			<ul class="box-info">
 				<li>
@@ -171,8 +194,6 @@ $consulta5 = mysqli_query($conexion, "SELECT nombreA FROM articulo WHERE cantida
 		<!-- MAIN -->
 	</section>
 	<!-- CONTENT -->
-	
-
 	<script src="script.js"></script>
 </body>
 </html>

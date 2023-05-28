@@ -13,7 +13,7 @@ if(isset($_POST['update_product'])){
    $tipoArchivo = $_FILES["product_image"]["type"];
    $rutaTemporal = $_FILES["product_image"]["tmp_name"];
 
-   if(empty($product_name) || empty($product_price) || empty($product_cantidad) || empty($product_desc) || empty($product_image)){
+   if(empty($product_name) || empty($product_price) || empty($product_cantidad) || empty($product_desc) ){
       $message[] = 'Uno de los campos está vacío';
    }else{
 	$db = new Conexion();
@@ -132,6 +132,7 @@ if(isset($_POST['update_product'])){
 					</ul>
 				</div>
 			</div>
+			
 
 			<?php
 				if(isset($message)){

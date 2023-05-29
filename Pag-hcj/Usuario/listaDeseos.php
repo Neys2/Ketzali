@@ -47,7 +47,6 @@ $con = $db->conectar();
                 <a href="perfil.php">Perfil</a>
                 <a href="carrito.php">Carrito</a>
                 <a href="compras.php">Compras</a>
-                <a href="listaDeseos.php">Lista de deseos</a>
                 <a href="configuracion.php">Configuracion</a>
             </nav>
 

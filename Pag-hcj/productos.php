@@ -88,11 +88,11 @@ $data = "p-" . $id;
         <img class="imagen-p" src="<?php echo $imagen . '?v=' . time(); ?>" alt="producto 1">
     </figure>
     <div class="informacion">
-        <p><?php echo $row['nombreA'] ?></p>
+        <p id="producto-p-<?php echo $row['nombreA'] ?>"><?php echo $row['nombreA'] ?></p>
         <p class="precio"><?php echo "$ " . $row['precio'] ?></p>
         <div class="botonp">
             <button class="botondp">Detalles</button>
-            <button>Agregar a carrito</button>
+            <button onclick="agregarProducto('producto-<?php echo $row['ID_A']?>')">Agregar a carrito</button>
         </div>
     </div>
 </div>
@@ -123,7 +123,7 @@ $data = "p-" . $id;
         ?>
 
         <img src="<?php echo $imagen . '?v=' . time(); ?>" alt="">
-        <h3><?php echo $row['nombreA'] ?></h3>
+        <h3 id="producto-<?php echo $row['nombreA'];?>"><?php echo $row['nombreA'] ?></h3>
         <div class="stars">
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
@@ -148,7 +148,7 @@ $data = "p-" . $id;
                 </div>-->
             </div>
             <div class="boton-preview">
-                <a href="#" class="buy">Agregar a carrito</a>
+                <button class="buy" onclick="agregarProducto('producto-<?php echo $row['nombreA']?>')">Agregar a carrito</button>
             </div>
         </div>
     </div>

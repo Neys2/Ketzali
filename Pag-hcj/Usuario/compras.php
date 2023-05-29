@@ -11,15 +11,22 @@ $ideuser = $_SESSION['id_usuario'];
 $sql = $con->prepare("SELECT * FROM venta WHERE fkID_U = '" . $ideuser . "'");
 $sql->execute();
 $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
-$_SESSION['idVenta'] = $resultado[0]['ID_V'];
-$_SESSION['fecha'] = $resultado[0]['fecha'];
-$_SESSION['total'] = $resultado[0]['total'];
-$_SESSION['tipoPago'] = $resultado[0]['tipoPago'];
 
-$id = $_SESSION['idVenta'];
-$fecha = $_SESSION['fecha'];
-$total = $_SESSION['total'];
-$pago = $_SESSION['tipoPago']
+
+/*
+foreach($resultado as $compras){
+        array_push($compras['compras'], 
+        [
+        'ID_V' => $compras[0]['ID_V'],
+        'fecha' => $compras[0]['fecha'],
+        'total' => $compras[0]['total'],
+        'tipoPago' => $compras[0]['tipoPago']
+        ]
+    );
+    
+    }
+*/
+
 ?>
 
 
@@ -58,7 +65,7 @@ $pago = $_SESSION['tipoPago']
                 <div class="fas fa-search" id="search-btn"></div>
                 <div class="fas fa-shopping-cart" id="cart-btn"></div>
                 <div class="fas fa-bars" id="menu-btn"></div>
-                <div class = "fas fa-circle-user" href = "perfil.php"></div>
+                <div class="fas fa-circle-user" href="perfil.php"></div>
             </div>
         </header>
 
@@ -67,33 +74,37 @@ $pago = $_SESSION['tipoPago']
                 <a href="perfil.php">Perfil</a>
                 <a href="carrito.php">Carrito</a>
                 <a href="compras.php">Compras</a>
-                <a href="listaDeseos.php">Lista de deseos</a>
                 <a href="configuracion.php">Configuracion</a>
             </nav>
 
         </div>
 
         <div class="dataArea">
-            <table class="tabla">
-                <tr class = "cabecera">
-                    <td>Folio</td>
-                    <td>Fecha</td>
-                    <td>Total</td>
-                    <td>Tipo de pago</td>
-                </tr>
-                <tr>
-                    <?php
-                    echo
-                    "<td>$id</td>
-                    <td>$fecha</td>
-                    <td>$total</td>
-                    <td>$pago</td>"
+            <?php
+            $listaCompras = " ";
+            if (isset($resultado) && $resultado != []) {
+                echo '<table class="tabla">
+                    <tr class="cabecera">
+                        <td>Folio</td>
+                        <td>Fecha</td>
+                        <td>Total</td>
+                        <td>Tipo de pago</td>
+                    </tr>';
+                foreach ($resultado as $compras) {
+                    $listaCompras .= '<tr>';
+                    $listaCompras .= '<td>' . $compras['ID_V'] . '</td>';
+                    $listaCompras .= '<td>' . $compras['fecha'] . '</td>';
+                    $listaCompras .= '<td>' . $compras['total'] . '</td>';
+                    $listaCompras .= '<td>' . $compras['tipoPago'] . '</td>';
+                }
+                $listaCompras .= "</tr>";
+                echo $listaCompras;
+                echo '</table>';
+            }else{
+                echo '<p>Aún no ha realizado compras</p>';
+            }
 
-
-                    ?>
-
-                </tr>
-            </table>
+            ?>
         </div>
     </body>
 

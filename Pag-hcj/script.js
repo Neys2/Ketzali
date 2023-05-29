@@ -25,3 +25,20 @@ previewBox.forEach(close =>{
     preveiwContainer.style.display = 'none';
   };
 });
+
+async function agregarProducto(idProducto){
+  let productoCarrito = idProducto.split('-');
+  productoCarrito = productoCarrito.reverse();
+  productoCarrito = productoCarrito[0];
+
+  const form = new FormData();
+  form.append("id",productoCarrito);
+  console.log(productoCarrito);
+  const response = await fetch('./agregarProducto.php',{
+    method: "POST",
+    body: form
+  }).then((response) => response.text())
+  .then((text) => {
+    alert(text);
+  });
+}

@@ -24,6 +24,7 @@ $sql = $con->prepare("SELECT * FROM usuario WHERE correoU = '".$nombre."' and co
             $_SESSION['telefono'] = $resultado[0]['telefono'];
             $_SESSION['dom'] = $resultado[0]['domicilio'];
             $_SESSION['pago'] = $resultado[0]['numTarjeta'];
+            $_SESSION['carrito'] = [];
             //var_dump($_SESSION);
             header("location:Usuario/perfil.php");
             echo "Bienvenido: ".$nombre;

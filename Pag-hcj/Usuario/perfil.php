@@ -12,14 +12,19 @@ if (isset($_SESSION['correo']) && !empty($_SESSION['correo'])) {
 }
 if (isset($_SESSION['telefono']) && !empty($_SESSION['telefono'])) {
     $tel = $_SESSION['telefono'];
+}else{
+    $tel = "Sin agregar";
 }
 if (isset($_SESSION['dom']) && !empty($_SESSION['dom'])) {
     $dom = $_SESSION['dom'];
+}else{
+    $dom = "Sin agregar";
 }
 if (isset($_SESSION['pago']) && !empty($_SESSION['pago'])) {
     $pago = $_SESSION['pago'];
+}else{
+    $pago = "Sin agregar";
 }
-
 
 
 ?>
@@ -55,7 +60,7 @@ $iduser = $_SESSION['id_usuario'];
         <header class="header">
             <a href="../index.php" class="logo">
                 <img src="../imagen/logo.png" alt="" href="../index.php">
-                <a class=ketzali href="index.php">Ketzali Piel</a>
+                <a class=ketzali href="../index.php">Ketzali Piel</a>
             </a>
 
             <nav class="navbar">
@@ -65,7 +70,7 @@ $iduser = $_SESSION['id_usuario'];
 
             <div class="icons">
                 <div class="fas fa-search" id="search-btn"></div>
-                <div class="fas fa-shopping-cart" id="cart-btn"></div>
+                <a href="carrito.php"><div class="fas fa-shopping-cart" id="cart-btn"></div></a>
                 <div class="fas fa-bars" id="menu-btn"></div>
                 <div class = "fas fa-circle-user" href = "perfil.php"></div>
             </div>
@@ -76,7 +81,6 @@ $iduser = $_SESSION['id_usuario'];
                 <a href="perfil.php">Perfil</a>
                 <a href="carrito.php">Carrito</a>
                 <a href="compras.php">Compras</a>
-                <a href="listaDeseos.php">Lista de deseos</a>
                 <a href="configuracion.php">Configuracion</a>
             </nav>
 
@@ -94,24 +98,31 @@ $iduser = $_SESSION['id_usuario'];
             <div class="pSection">
                 <h3>DATOS PERSONALES</h3>
                 <?php
-                echo "<p>Nombre(s): $name</p>
-                <p>Apellidos:</p>
-                <p>Telefono:$tel</p>
-                <p>Correo:$email</p>";
+                echo '<p>Nombre:'.$name.'</p>
+                <p>Telefono:'.$tel.'</p>
+                <p>Correo:'.$email.'</p>
+                <button type = submit; class ="boton"; >Agregar telefono</button>';
                 ?>
                 <hr>
             </div>
             <div class="pSection">
                 <h3>DOMICILIOS</h3>
                 <?php
-                echo "<p>$dom<\p>";
+                echo '<div class="minSection";>
+                <p>'.$dom.'<\p>
+                <button type = submit; class ="boton"; >Agregar domicilio</button>
+                <br></div>';
                 ?>
                 <hr>
             </div>
             <div class="pSection">
                 <h3>INFORMACION DE PAGO</h3>
                 <?php
-                echo "<p>Tarjeta: $pago <\p>";
+                echo '<div class = "minSection";> 
+                <p>Tarjeta: '.$pago.' <\p>
+                <button type = submit; class ="boton"; >Agregar tarjeta</button>
+                <br>
+                </div>';
                 ?>
                 <hr>
             </div>

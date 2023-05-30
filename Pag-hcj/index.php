@@ -3,6 +3,7 @@
 include 'conexion.php';
 session_start();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,7 +70,7 @@ if(!isset($SESSION['id_usuario'])){
     </header>
     <!--header acaba -->
     <div class="welcome">
-        <img style="width: max-content; height: 850px;" src="imagen/welcome.jpg" alt="">
+        <img style="width: 100%; height: 100%;" src="imagen/welcome.jpg" alt="">
         <h1 id="welcome-titulo">¡Bienvenida a tu</h1>
         <h1 id="animado">Glow Up!</h1>
         <p>Hagamos que tu piel brille con el sol</p>
@@ -77,8 +78,8 @@ if(!isset($SESSION['id_usuario'])){
 
     <div class="us">
     <h2 id="ustitulo">Nuestra filosofía</h2>
-    <p id="usp">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est, a possimus officiis ducimus et ut enim dolore!
-        Dolore, doloribus nam, molestias modi similique ipsa excepturi id blanditiis perferendis eveniet quia?</p>
+    <p id="usp">Nuestra empresa se fundamenta en una filosofía centrada en la excelencia, la orientación al cliente y la innovación.
+        Valoramos la responsabilidad social y ambiental, promovemos el trabajo en equipo y el respeto mutuo, y actuamos con integridad y ética en todas nuestras acciones.</p>
     </div>
 
         <div class="products">
@@ -86,19 +87,19 @@ if(!isset($SESSION['id_usuario'])){
          <div class="pimg">
             <div class="pindeximg">
             <img src="imagen/aceites.jpg" alt="">
-            <div class="aproduct"><a href="">Orgánicos</a></div>
+            <div class="aproduct"><a href="productoscat1.php">Orgánicos</a></div>
             </div>
             <div class="pindeximg">
             <img src="imagen/pexels-karolina-grabowska-4465830.jpg" alt="">
-            <div class="aproduct"><a href="">Aceites hidratantes</a></div>
+            <div class="aproduct"><a href="productoscat2.php">Aceites hidratantes</a></div>
             </div>
             <div class="pindeximg">
             <img src="imagen/bottle-cream.jpg" alt="">
-            <div class="aproduct"><a href="">Cremas hidratantes</a></div>
+            <div class="aproduct"><a href="productoscat3.php">Cremas hidratantes</a></div>
             </div>
             <div class="pindeximg">
             <img src="imagen/serum-beige.jpg" alt="">
-            <div class="aproduct"><a href="">Tonificadores</a></div>
+            <div class="aproduct"><a href="productoscat4.php">Tonificadores</a></div>
             </div>
          </div>
         </div>
@@ -106,7 +107,7 @@ if(!isset($SESSION['id_usuario'])){
         <div class="genero">
             <h4>No importa tu genero</h4>
             <p>Conecta con tu piel y sientete bello y bella</p>
-            <img style="width: max-content; height: 850px;" src="imagen/beauty_boy.jpg" alt="">
+            <img style="width: 100%; height: 100%" src="imagen/beauty_boy.jpg" alt="">
         </div>
 
 </body>
@@ -117,7 +118,7 @@ if(!isset($SESSION['id_usuario'])){
             <h5>¿Tienes dudas?</h5>
             <p>¡Comunicate con nosotras !</p>
         </div>
-        <form action="/submit-form" method="post">
+        <form action="https://formsubmit.co/sodic1822@gmail.com" method="POST">
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" required><br>
 
@@ -128,6 +129,9 @@ if(!isset($SESSION['id_usuario'])){
             <textarea id="mensaje" name="mensaje" rows="5" cols="40" required></textarea><br>
 
             <input type="submit" value="Enviar">
+            <input type="hidden" name="_next" value="http://localhost/Ketzali-main/Pag-hcj/index.php">
+            <input type="hidden" name="_captcha" value="false">
+
         </form>
     </div>
 </footer>

@@ -16,8 +16,8 @@ nombreU varchar (60) not null,
 contrasena varchar (10) not null,
 correoU varchar (50) not null,
 telefono varchar (15),
-numTarjeta varchar(16) not null,
-domicilio varchar (200) not null,
+numTarjeta varchar(16),
+domicilio varchar (200),
 primary key (ID_U)
 );
 
@@ -35,6 +35,7 @@ nombreA varchar (100) not null,
 cantidad smallint not null,
 precio decimal(7,2) not null,
 descripcion varchar(255) not null,
+categoria varchar (100) not null,
 primary key (ID_A),
 foreign key (fkID_P) references Proveedor(ID_P) ON UPDATE CASCADE ON DELETE CASCADE
 );
@@ -59,8 +60,8 @@ foreign key (fkVenta) references Venta(ID_V) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 
-Insert into Usuario values(1,'Karen Carrillo Guzman','5654rgh65g','admin18@gmail.com','2294565467','7645673298745687','Mar #23');
-Insert into Usuario values(2,'Carlota Guzman Gamboa','78hgc54gy6','carlgg@gmail.com','2297647658','1285438766549876','Vista mar #87');
+Insert into Usuario values(1,'Karen Carrillo Guzman','123','admi18@gmail.com','2294565467','7645673298745687','Mar #23');
+Insert into Usuario values(2,'Carlota Guzman Gamboa','123','carlgg@gmail.com','2297647658','1285438766549876','Vista mar #87');
 Insert into Usuario values(3,'Tomas Carrillo Munive','8po7nhyt67','tomass2@gmail.com','2292456785','9977542765437654','Arboledas #45');
 Insert into Usuario values(4,'Arturo Avalos Guzman','976hvbg452','artur4@gmail.com','2298674376','2278564367895645','Jblobos #45');
 Insert into Usuario values(5,'Marlen Trinidad Ochoa','wlkubvt67u','marlen60@gmail.com','2299713254','1134654387650987','Vergel #76');
@@ -97,26 +98,26 @@ Select*from Proveedor;
 
 /*delete from Proveedor;*/
 
-Insert into Articulo values(1,1,'cerave','1','323.87','crema para el cuidado de la piel grasa');
-Insert into Articulo values(2,2,'dove','1','254.34','jabon para baño');
-Insert into Articulo values(3,3,'neutrogena','1','453.87','gel a base de agua para piel seca');
-Insert into Articulo values(4,4,'eucerin','1','132.67','valsamo para la piel');
-Insert into Articulo values(5,5,'palmolive','1','216.78','shampoo para el cabello');
-Insert into Articulo values(6,7,'L´oreal','1','89.54','crema para piel');
-Insert into Articulo values(7,6,'nivea','1','398.76','protector solar');
-Insert into Articulo values(8,8,'armonia','1','498.87','gel hidratante de piel');
-Insert into Articulo values(9,9,'ISDIN','1','234.76','fotoprotector solar');
-Insert into Articulo values(10,10,'sothys','1','134.43','mascara iluminadora');
-Insert into Articulo values(11,6,'Mascarilla para el cuello',150,178.99,'Producto de importación, Esta mezcla especial hidrata y repone su piel dándole una apariencia suave y flexible.');
-Insert into Articulo values(12,10,'Rodillo de hielo para masaje facial',200,253.22,'El producto es ampliamente utilizado en antiarrugas y elimina las líneas finas para suavizar la piel. reducir los poros y refrescar su piel sin productos químicos.');
-Insert into Articulo values(13,7,'Máscara Comprimida',644,154.23,'Hecho de tela no tejida de alta calidad, suave, delicada y sin irritación.');
-Insert into Articulo values(14,8,'Crema Blanqueadora Antiarrugas Para Ojos',300,44.14,'Ayuda a reafirmar y mejora la elasticidad y la textura de la piel para crear ojos de aspecto más joven, levanta, refina y conserva el tejido ocular, dejando que tus ojos se vean frescos y radiantes, minimizando las ojeras.');
-Insert into Articulo values(15,9,'Masajeador facial anti-arrugas',203,218.23,'A través del frío y el calor alternativamente, mejorar la absorción profunda de la piel.');
-Insert into Articulo values(16,6,'Suero Facial',150,222.99,'Los ingredientes principales son el polisacárido tremella fuciformis, el arándano y otros extractos de frutas que brindan diferentes efectos. humedece profundamente y repara la piel dañada.');
-Insert into Articulo values(17,10,'Botella de Spray de Perfume Recargable',200,219.22,'Adecuado para uso en viajes: peso ligero, puede ponerlo en su maleta, mochila, bolsa de mensajero, etc., muy adecuado para uso en viajes.');
-Insert into Articulo values(18,7,'Set de Cuidado de la Piel con Vitamina C',644,2588.23,'Hecho de tela no tejida de alta calidad, suave, delicada y sin irritación.');
-Insert into Articulo values(19,8,'Crema Blanqueadora Antiarrugas Para Ojos',300,44.14,'Reduce visiblemente la apariencia de las manchas de la edad en solo 4 semanas.');
-Insert into Articulo values(20,9,'Crema iluminadora para el cuidado de la piel',203,154.23,'Crema iluminadora para el cuidado de la piel.');
+Insert into Articulo values(1,1,'cerave','165','323.87','crema para el cuidado de la piel grasa','Cremas');
+Insert into Articulo values(2,2,'dove','165','254.34','jabon para baño','Organicos');
+Insert into Articulo values(3,3,'neutrogena','165','453.87','gel a base de agua para piel seca','Aceites');
+Insert into Articulo values(4,4,'eucerin','164','132.67','valsamo para la piel','Aceites');
+Insert into Articulo values(5,5,'palmolive','184','216.78','shampoo para el cabello','Organicos');
+Insert into Articulo values(6,7,'L´oreal','157','89.54','crema para piel','Cremas');
+Insert into Articulo values(7,6,'nivea','156','398.76','protector solar','Cremas');
+Insert into Articulo values(8,8,'armonia','165','498.87','gel hidratante de piel','Aceites');
+Insert into Articulo values(9,9,'ISDIN','175','234.76','fotoprotector solar','Organicos');
+Insert into Articulo values(10,10,'sothys','156','134.43','mascara iluminadora','Organicos');
+Insert into Articulo values(11,6,'Mascarilla para el cuello',150,178.99,'Producto de importación, Esta mezcla especial hidrata y repone su piel dándole una apariencia suave y flexible.','Organicos');
+Insert into Articulo values(12,10,'Rodillo de hielo para masaje facial',200,253.22,'El producto es ampliamente utilizado en antiarrugas y elimina las líneas finas para suavizar la piel. reducir los poros y refrescar su piel sin productos químicos.','Organicos');
+Insert into Articulo values(13,7,'Máscara Comprimida',644,154.23,'Hecho de tela no tejida de alta calidad, suave, delicada y sin irritación.','Organicos');
+Insert into Articulo values(14,8,'Crema Blanqueadora Antiarrugas Para Ojos',300,44.14,'Ayuda a reafirmar y mejora la elasticidad y la textura de la piel para crear ojos de aspecto más joven, levanta, refina y conserva el tejido ocular, dejando que tus ojos se vean frescos y radiantes, minimizando las ojeras.','Cremas');
+Insert into Articulo values(15,9,'Masajeador facial anti-arrugas',203,218.23,'A través del frío y el calor alternativamente, mejorar la absorción profunda de la piel.','Organicos');
+Insert into Articulo values(16,6,'Suero Facial',150,222.99,'Los ingredientes principales son el polisacárido tremella fuciformis, el arándano y otros extractos de frutas que brindan diferentes efectos. humedece profundamente y repara la piel dañada.','Tonificadores');
+Insert into Articulo values(17,10,'Botella de Spray de Perfume Recargable',200,219.22,'Adecuado para uso en viajes: peso ligero, puede ponerlo en su maleta, mochila, bolsa de mensajero, etc., muy adecuado para uso en viajes.','Aceites');
+Insert into Articulo values(18,7,'Set de Cuidado de la Piel con Vitamina C',644,2588.23,'Hecho de tela no tejida de alta calidad, suave, delicada y sin irritación.','Tonificadores');
+Insert into Articulo values(19,8,'Crema Blanqueadora Antiarrugas Para Ojos',300,44.14,'Reduce visiblemente la apariencia de las manchas de la edad en solo 4 semanas.','Cremas');
+Insert into Articulo values(20,9,'Crema iluminadora para el cuidado de la piel',203,154.23,'Crema iluminadora para el cuidado de la piel.','Cremas');
 Select*from Articulo;
 
 /*delete from Articulo;*/

@@ -49,13 +49,14 @@ tipoPago varchar(50) not null,
 primary key(ID_V),
 foreign key (fkID_U) references Usuario(ID_U) ON UPDATE CASCADE ON DELETE CASCADE
 );
-describe Articulo;
+
 create table Carrito(
 cantidadArt Smallint unsigned not null,
-precioCompra decimal(8,2),
-fkArticulo Smallint unsigned,
+fkArticulo Smallint unsigned not null,
 foreign key (fkArticulo) references Articulo(ID_A) ON UPDATE CASCADE ON DELETE CASCADE,
-fkVenta Int unsigned,
+fkUsuario mediumint unsigned not null,
+foreign key (fkUsuario) references Usuario(ID_U) ON UPDATE CASCADE ON DELETE CASCADE,
+fkVenta Int unsigned null,
 foreign key (fkVenta) references Venta(ID_V) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
@@ -123,111 +124,113 @@ Select*from Articulo;
 /*delete from Articulo;*/
 
 Insert into Venta values(1,11,178.99,'2023-02-21','Tarjeta de credito');
-Insert into Carrito values(1,178.99,11,1);
+Insert into Carrito values(1,15,2,1);
 
 Insert into Venta values(2,12,611.2,'2023-02-21','Tarjeta de credito');
-Insert into Carrito values(2,357.98,11,2);
-Insert into Carrito values(1,253.22,12,2);
+Insert into Carrito values(1,11,5,2);
+Insert into Carrito values(1,12,12,2);
 
 Insert into Venta values(3,13,352.6,'2023-02-22','Tarjeta de credito');
-Insert into Carrito values(2,308.46,13,3);
-Insert into Carrito values(1,44.14,14,3);
+Insert into Carrito values(1,6,13,3);
+Insert into Carrito values(1,14,14,3);
 
 Insert into Venta values(4,14,1091.15,'2023-02-22','Tarjeta de credito');
-Insert into Carrito values(5,1091.15,15,4);
+Insert into Carrito values(5,15,1,4);
 
 Insert into Venta values(5,15,891.96,'2023-02-22','Tarjeta de credito');
-Insert into Carrito values(4,891.96,16,5);
+Insert into Carrito values(4,9,6,5);
 
 Insert into Venta values(6,16,1753.76,'2023-02-22','Tarjeta de credito');
-Insert into Carrito values(8,1753.76,17,6);
+Insert into Carrito values(8,1,7,6);
 
 Insert into Venta values(7,12,3026.67,'2023-02-22','Tarjeta de credito');
-Insert into Carrito values(2,438.44,17,7);
-Insert into Carrito values(1,2588.23,18,7);
+Insert into Carrito values(2,4,1,7);
+Insert into Carrito values(1,8,1,7);
 
 Insert into Venta values(8,17,2676.51,'2023-02-22','Tarjeta de credito');
-Insert into Carrito values(2,88.28,19,8);
-Insert into Carrito values(1,2588.23,18,8);
+Insert into Carrito values(2,8,9,8);
+Insert into Carrito values(1,2,1,8);
 
 Insert into Venta values(9,18,2676.51,'2023-02-23','Tarjeta de credito');
-Insert into Carrito values(2,308.46,20,9);
+Insert into Carrito values(2,6,20,9);
 
 Insert into Venta values(10,19,771.15,'2023-02-23','Tarjeta de credito');
-Insert into Carrito values(5,771.15,20,10);
+Insert into Carrito values(5,7,20,10);
 
 Insert into Venta values(11,20,894.95,'2023-02-23','Tarjeta de credito');
-Insert into Carrito values(5,894.95,11,11);
+Insert into Carrito values(5,9,11,11);
 
 Insert into Venta values(12,11,2025.76,'2023-02-23','Tarjeta de credito');
-Insert into Carrito values(8,2025.76,12,12);
+Insert into Carrito values(8,6,12,12);
 
 Insert into Venta values(13,13,925.38,'2023-02-23','Tarjeta de credito');
-Insert into Carrito values(6,925.38,13,13);
+Insert into Carrito values(6,9,15,13);
 
 Insert into Venta values(14,13,1363.82,'2023-02-23','Tarjeta de credito');
-Insert into Carrito values(6,925.38,13,14);
-Insert into Carrito values(2,438.44,17,14);
+Insert into Carrito values(6,3,1,14);
+Insert into Carrito values(2,4,7,14);
 
 Insert into Venta values(15,15,2347.05,'2023-02-23','Tarjeta de credito');
-Insert into Carrito values(6,925.38,13,15);
-Insert into Carrito values(2,438.44,17,15);
-Insert into Carrito values(5,894.95,11,15);
-Insert into Carrito values(2,88.28,19,15);
+Insert into Carrito values(6,9,13,15);
+Insert into Carrito values(2,4,17,15);
+Insert into Carrito values(5,5,11,15);
+Insert into Carrito values(2,2,19,15);
 
 
 Insert into Venta values(16,11,178.99,'2023-02-22','Tarjeta de debito');
-Insert into Carrito values(1,178.99,11,16);
+Insert into Carrito values(1,7,11,16);
 
 Insert into Venta values(17,12,611.2,'2023-02-22','Tarjeta de debito');
-Insert into Carrito values(2,357.98,11,17);
-Insert into Carrito values(1,253.22,12,17);
+Insert into Carrito values(2,3,11,17);
+Insert into Carrito values(1,5,12,17);
 
 Insert into Venta values(18,13,352.6,'2023-02-22','Tarjeta de debito');
-Insert into Carrito values(2,308.46,13,18);
-Insert into Carrito values(1,44.14,14,18);
+Insert into Carrito values(2,6,13,18);
+Insert into Carrito values(1,4,14,18);
 
 Insert into Venta values(19,14,1091.15,'2023-02-22','Tarjeta de debito');
-Insert into Carrito values(5,1091.15,15,19);
+Insert into Carrito values(5,3,15,19);
 
 Insert into Venta values(20,15,891.96,'2023-02-22','Tarjeta de debito');
-Insert into Carrito values(4,891.96,16,20);
+Insert into Carrito values(4,6,16,20);
 
 Insert into Venta values(21,16,1753.76,'2023-02-22','Tarjeta de debito');
-Insert into Carrito values(8,1753.76,17,21);
+Insert into Carrito values(8,7,17,21);
 
 Insert into Venta values(22,12,3026.67,'2023-02-22','Tarjeta de debito');
 Insert into Carrito values(2,438.44,17,22);
-Insert into Carrito values(1,2588.23,18,22);
+Insert into Carrito values(1,5,18,22);
 
 Insert into Venta values(23,17,2676.51,'2023-02-22','Tarjeta de debito');
-Insert into Carrito values(2,88.28,19,23);
-Insert into Carrito values(1,2588.23,18,23);
+Insert into Carrito values(2,8,19,23);
+Insert into Carrito values(1,8,18,23);
 
 Insert into Venta values(24,18,2676.51,'2023-02-23','Tarjeta de debito');
-Insert into Carrito values(2,308.46,20,24);
+Insert into Carrito values(2,4,20,24);
 
 Insert into Venta values(25,19,771.15,'2023-02-23','Tarjeta de debito');
-Insert into Carrito values(5,771.15,20,25);
+Insert into Carrito values(5,7,20,25);
 
 Insert into Venta values(26,20,894.95,'2023-02-23','Tarjeta de debito');
-Insert into Carrito values(5,894.95,11,26);
+Insert into Carrito values(5,5,11,26);
 
 Insert into Venta values(27,11,2025.76,'2023-02-23','Tarjeta de debito');
-Insert into Carrito values(8,2025.76,12,27);
+Insert into Carrito values(8,2,12,27);
 
 Insert into Venta values(28,13,925.38,'2023-02-23','Tarjeta de debito');
-Insert into Carrito values(6,925.38,13,28);
+Insert into Carrito values(6,3,13,28);
 
 Insert into Venta values(29,13,1363.82,'2023-02-23','Tarjeta de debito');
-Insert into Carrito values(6,925.38,13,29);
-Insert into Carrito values(2,438.44,17,29);
+Insert into Carrito values(6,3,13,29);
+Insert into Carrito values(2,4,17,29);
 
 Insert into Venta values(30,15,2347.05,'2023-02-23','Tarjeta de debito');
-Insert into Carrito values(6,925.38,13,30);
-Insert into Carrito values(2,438.44,17,30);
-Insert into Carrito values(5,894.95,11,30);
-Insert into Carrito values(2,88.28,19,30);
+Insert into Carrito values(6,8,13,30);
+Insert into Carrito values(2,4,17,30);
+Insert into Carrito values(5,5,11,30);
+Insert into Carrito values(2,8,19,30);
+
+
 
 select*from Venta;
 select*from Carrito;
@@ -244,8 +247,8 @@ FROM Articulo
 INNER JOIN Proveedor
 ON Articulo.fkID_P = Proveedor.ID_P;
 
-/*Ventas que se han hecho a un cliente*/
-SELECT Usuario.nombreU,Carrito.fkVenta,Articulo.nombreA, Carrito.cantidadArt, Carrito.precioCompra
+/*Ventas que se han hecho a un cliente                                     SE ELIMINÓ LA COLUMNA precioCompra*/
+SELECT Usuario.nombreU,Carrito.fkVenta,Articulo.nombreA, Carrito.cantidadArt/*, Carrito.precioCompra*/ 
 FROM Articulo
 INNER JOIN Carrito ON Articulo.ID_A = Carrito.fkArticulo
 INNER JOIN Venta on Venta.ID_V=Carrito.fkVenta
@@ -271,3 +274,28 @@ SELECT articulo.nombreA, SUM(carrito.cantidadArt) as cantidad
     INNER JOIN articulo ON carrito.fkArticulo = articulo.ID_A
     GROUP BY articulo.ID_A
     ORDER BY SUM(carrito.cantidadArt) DESC LIMIT 1;
+
+/*Trigger que añade un id venta a la tabla CARRITO y actualiza stock de artículo*/
+DELIMITER $$
+CREATE TRIGGER nuevaVenta
+AFTER INSERT ON Venta
+FOR EACH ROW
+BEGIN
+    UPDATE Carrito
+    set  Carrito.fkVenta = NEW.ID_V;
+    WHERE Carrito.fkArticulo = New.fkArticulo AND Carrito.fkVenta = NULL; 
+END$$
+DELIMITER ;
+
+/*TRIGGER que actualiza el stock de los productos*/
+DELIMITER $$
+CREATE TRIGGER stockArticulo
+AFTER UPDATE ON Carrito
+FOR EACH ROW
+BEGIN
+
+    UPDATE Articulo
+    set Articulo.cantidad = Articulo.cantidad - NEW.cantidadArt
+    WHERE Articulo.ID_A = NEW.fkArticulo;
+END$$
+DELIMITER ;

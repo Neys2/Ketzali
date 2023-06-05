@@ -21,31 +21,24 @@ if(!$conn)
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
     <title>Inicia sesion</title>
 </head>
 
 <body>
     <header class="header">
-        <a href="#" class="logo">
-            <img src="imagen/logo.png" alt="">
-            <a class=ketzali href="index.php">Ketzali Piel</a>
-        </a>
-
-        <nav class="navbar">
-            <a href="index.php">inicio</a>
-            <a href="#nosotros">nosotros</a>
-            <a href="productos.php">productos</a>
-            <a href="login.php">login</a>
-        </nav>
-
-        <div class="icons">
-            <div class="fas fa-search" id="search-btn"></div>
-            <div class="fas fa-shopping-cart" id="cart-btn"></div>
-            <div class="fas fa-bars" id="menu-btn"></div>
-            <div class = "fas fa-circle-user" href = "perfil.php"></div>
-        </div>
+    <?php include 'navbar.php';?>
     </header>
 
+    <?php
+    if(isset($_SESSION['error']))
+    {
+        echo '<script>mostrarPopup("Error en los datos");</script>';
+        $_SESSION['error'] = false;
+        session_unset();
+        session_destroy(); // Reiniciar el valor de $_SESSION['error']
+    }
+    ?>
     <section class="formulario">
         
         <form action="loguear.php" method="post">
@@ -68,6 +61,7 @@ if(!$conn)
             <input class="boton" type="submit" value="Registrarse" name="registro">
         </form>
     </section> 
+    
 
 </body>
 

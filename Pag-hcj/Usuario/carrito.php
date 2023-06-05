@@ -4,7 +4,15 @@ include '../conexion.php';
 session_start();
 $db = new Conexion();
 $con = $db->conectar();
-$productosCarrito = $_SESSION['carrito'];
+
+$usuario = $_SESSION['id_usuario'];
+var_dump($usuario);
+$sql = $con->prepare("SELECT * FROM Carrito WHERE fkUsuario = $usuario AND fkVenta IS NULL");
+if ($sql->execute()) {
+    $productosCarrito = $sql->fetchAll(PDO::FETCH_ASSOC);
+} else {
+    echo "Error con BD. Consulta a soporte";
+}
 
 ?>
 
@@ -29,23 +37,7 @@ $productosCarrito = $_SESSION['carrito'];
 
     <body>
         <header class="header">
-            <a href="../index.php" class="logo">
-                <img src="imagen/logo.png" alt="">
-                <a class=ketzali href="../index.php">Ketzali Piel</a>
-            </a>
-
-            <nav class="navbar">
-                <a href="../index.php">inicio</a>
-                <a href="#nosotros">nosotros</a>
-                <a href="../productos.php">productos</a>
-            </nav>
-
-            <div class="icons">
-                <div class="fas fa-search" id="search-btn"></div>
-                <div class="fas fa-shopping-cart" id="cart-btn" href="carrito.php"></div>
-                <div class="fas fa-bars" id="menu-btn"></div>
-                <div class="fas fa-circle-user" href="perfil.php"></div>
-            </div>
+            <?php include 'navbar.php'; ?>
         </header>
 
         <div class="barraDeUsuario">
@@ -63,63 +55,116 @@ $productosCarrito = $_SESSION['carrito'];
             <?php
             $i = 0;
             if (isset($productosCarrito) && $productosCarrito != []) {
-                $listaCarrito = "<div style='display:grid;justify-content:center';>";
-                var_dump($productosCarrito);
+                $total = 0;
+                $listaCarrito = "<div >";
+                $listaCarrito .= "<table id='carritoTable' class='carrito'><thead><tr>";
+                $listaCarrito .= "<th></th>";
+                $listaCarrito .= "<th>Descripción</th>";
+                $listaCarrito .= "<th>Precio</th>";
+                $listaCarrito .= "<th>Cantidad</th>";
+                $listaCarrito .= "<th>Subtotal</th>";
+                $listaCarrito .= "<th></th>";
+                $listaCarrito .= "</tr></thead><tbody>";
                 foreach ($productosCarrito as $producto) {
-                    $id = $producto['ID_A'];
-
-                    $imagen = "../imagen/Productos/" . $producto['ID_A'] . ".png";
+                    $idArticulo = $producto['fkArticulo'];
+                    $cantidad = $producto['cantidadArt'];
+                    $sql = $con->prepare("SELECT * FROM articulo WHERE ID_A = " . $idArticulo);
+                    if ($sql->execute()) {
+                        $articulo = $sql->fetchAll(PDO::FETCH_ASSOC);
+                    } else {
+                        echo "Error con BD. Consulta a soporte";
+                        return;
+                    }
+                    $imagen = "../imagen/Productos/" . $articulo[0]['ID_A'] . ".png";
+                    // echo '<pre>';
+                    // var_dump( $imagen);
+                    // echo '</pre>';
+                    // die();
                     if (!file_exists($imagen)) {
                         $imagen = "imagen/noimage.jpg";
                     }
-
-                    $sql = $con->prepare("SELECT nombreA, cantidad, precio FROM articulo WHERE ID_A = " . $id);
-                    $sql->execute();
-                    $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
-                    $quantity =  $resultado['cantidad'];
-                    $listaCarrito .= '<div id="'.$i.'"; style="display:flex;margin-bottom:10px;">';
-                    $listaCarrito .= '<img style="height: 150px;" src=' . $imagen . '>';
-                    $listaCarrito .= '<p style = "margin-top: 12%;">' . $resultado['nombreA'] . '</p>';
-                    $listaCarrito .= '<p style = "margin-top: 12%;">' . $resultado['precio'] . '</p>';
-                    $listaCarrito .= '<button  class="quantity" onclick="decreaseQuantity(' . $i . ')">-</button>
-                        <span style = "margin-top: 15%; margin-left: 5px;  margin-rigth: 5px;" id="quantity-' . $i . '">1</span>
-                        <button class="quantity" onclick="increaseQuantity(' . $i . ',' . $quantity . ')">+</button>.</p>';
-                    $listaCarrito .= '<div class="fa-light fa-trash-can" onclick="deleteItem(' . $id . ')"></div>';
-                    $listaCarrito .= "</div>";
-                    $i++;
+                    $stock =  $articulo[0]['cantidad'];
+                    $botonesCantidad = "<button onclick = decrementar($idArticulo)> - </button>";
+                    $botonesCantidad .= "<span id='$idArticulo-cantidad'>$cantidad</span>";
+                    $botonesCantidad .= "<button onclick = incrementar($idArticulo,$stock)> + </button>";
+                    $listaCarrito .= "<tr id='$idArticulo-fila'>";
+                    $listaCarrito .= "<td><img style='max-width:170px' src='" . $imagen . "'/></td>";
+                    $listaCarrito .= "<td>" . $articulo[0]['descripcion'] . "</td>";
+                    $listaCarrito .= "<td>" . $articulo[0]['precio'] . "</td>";
+                    $listaCarrito .= "<td>" . $botonesCantidad . "</td>";
+                    $subtotal = $articulo[0]['precio']*$cantidad;
+                    $total = $total+$subtotal;
+                    $listaCarrito .= "<td><span id='subtotal'>$subtotal</span></td>";
+                    $listaCarrito .= "<td>" . "<i onclick = eliminar($idArticulo) class='fa-solid fa-trash-can'></i>" . "</td>";
+                    $listaCarrito .= "</tr>";
                 }
-                $listaCarrito .= '</div>';
+                $listaCarrito .= "<tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Total:</td>
+                <td>$total</td></tr>";
+                $listaCarrito .= '</tbody></table></div>';
+                $_SESSION['total'] = $total;
                 echo $listaCarrito;
+                echo '<a href ="../compra.php";><button  class="boton";>Continuar a la compra</button></a>';
             } else {
                 echo "<h3> Aún no has agregado productos a tu carrito :( </h3>";
             }
             ?>
-            <script>
-                function decreaseQuantity(productId) {
-                    var quantityElement = document.getElementById("quantity-" + productId);
-                    var quantity = parseInt(quantityElement.innerText);
-                    if (quantity > 1) {
-                        quantityElement.innerText = (quantity - 1).toString();
-                    }
-                }
-
-                function increaseQuantity(productId, maxQuantity) {
-                    var quantityElement = document.getElementById("quantity-" + productId);
-                    var quantity = parseInt(quantityElement.innerText);
-
-                    if (quantity < maxQuantity) {
-                        quantityElement.innerText = (quantity + 1).toString();
-                    } else {
-                        alert("El producto se ha agotado");
-                    }
-                }
-
-                function deletItem(productId) {
-                    var productElement = document.getElementById("product-" + productId);
-                    productElement.remove();
-                }
-            </script>
         </div>
+        <script>
+            function decrementar(productId) {
+                var quantityElement = document.getElementById(productId + "-cantidad");
+                var quantity = parseInt(quantityElement.textContent);
+                if (quantity > 1) {
+                    const form = new FormData();
+                    form.append("id", productId);
+                    fetch('../decrementar.php', {
+                            method: "POST",
+                            body: form
+                        }).then((response) => response.text())
+                        .then((text) => {
+                            quantityElement.textContent = (quantity - 1).toString();
+                        });
+                }
+            }
+
+            function incrementar(productId, maxQuantity) {
+                var quantityElement = document.getElementById(productId + "-cantidad");
+                var quantity = parseInt(quantityElement.textContent);
+
+                if (quantity < maxQuantity) {
+                    const form = new FormData();
+                    form.append("id", productId);
+                    fetch('../incrementar.php', {
+                            method: "POST",
+                            body: form
+                        }).then((response) => response.text())
+                        .then((text) => {
+                            quantityElement.textContent = (quantity + 1).toString();
+                        });
+                } else {
+                    alert("El producto se ha agotado");
+                }
+            }
+
+            function eliminar(productId) {
+                const idToMatch = productId + "-fila";
+                console.log(idToMatch)
+                const productRow = document.getElementById(idToMatch);
+                const form = new FormData();
+                form.append("id", productId);
+                fetch('../eliminarProducto.php', {
+                        method: "POST",
+                        body: form
+                    }).then((response) => response.text())
+                    .then((text) => {
+                        productRow.remove()
+                        recalculateNoProducts()
+                    });
+            }
+        </script>
     </body>
 
 </HTML:5>

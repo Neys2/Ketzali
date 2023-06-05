@@ -1,9 +1,10 @@
 
 <?php
 require 'conexion.php';
-session_start();
 $db = new Conexion();
 $con = $db->conectar();
+
+session_start();
 
 $nombre = $_POST["correo"];
 $pass = $_POST["contrasenia"];
@@ -12,12 +13,11 @@ $sql = $con->prepare("SELECT * FROM usuario WHERE correoU = '".$nombre."' and co
         $sql->execute();
         $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
         //var_dump($resultado[0]['ID_U']);
-        if($resultado > 0 && $nombre=="admin18@gmail.com"){
-            
+        if(sizeof($resultado) > 0 && $nombre=="admin18@gmail.com"){
             header("location:Admin\admin.php");
             echo "Bienvenido: ".$nombre;
             
-        }else if($resultado > 0 ){
+        }else if(sizeof($resultado) > 0 ){
             $_SESSION['id_usuario'] = $resultado[0]['ID_U'];
             $_SESSION['name'] = $resultado[0]['nombreU'];
             $_SESSION['correo'] = $resultado[0]['correoU'];
@@ -29,8 +29,10 @@ $sql = $con->prepare("SELECT * FROM usuario WHERE correoU = '".$nombre."' and co
             header("location:Usuario/perfil.php");
             echo "Bienvenido: ".$nombre;
             
-        }elseif ($resultado == 0){
-            echo "Error en los datos";
+        }elseif (sizeof($resultado) == 0){
+            $_SESSION['error'] = "true";
+            header("location:login.php");
+            //echo "Error en los datos";
         };
 
 ?>

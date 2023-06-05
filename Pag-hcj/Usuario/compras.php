@@ -50,23 +50,7 @@ foreach($resultado as $compras){
 
     <body>
         <header class="header">
-            <a href="../index.php" class="logo">
-                <img src="imagen/logo.png" alt="">
-                <a class=ketzali href="../index.php">Ketzali Piel</a>
-            </a>
-
-            <nav class="navbar">
-                <a href="../index.php">inicio</a>
-                <a href="#nosotros">nosotros</a>
-                <a href="../productos.php">productos</a>
-            </nav>
-
-            <div class="icons">
-                <div class="fas fa-search" id="search-btn"></div>
-                <div class="fas fa-shopping-cart" id="cart-btn"></div>
-                <div class="fas fa-bars" id="menu-btn"></div>
-                <div class="fas fa-circle-user" href="perfil.php"></div>
-            </div>
+        <?php include 'navbar.php';?>
         </header>
 
         <div class="barraDeUsuario">
@@ -101,7 +85,7 @@ foreach($resultado as $compras){
                 echo $listaCompras;
                 echo '</table>';
             }else{
-                echo '<p>Aún no ha realizado compras</p>';
+                echo '<h3>Aún no ha realizado compras</h3>';
             }
 
             ?>

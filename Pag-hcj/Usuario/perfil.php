@@ -5,6 +5,8 @@ session_start();
 
 if (isset($_SESSION['id_usuario']) && !empty($_SESSION['id_usuario'])) {
     $iduser = $_SESSION['id_usuario'];
+}else{
+    header("Location:../login.php");
 }
 
 if (isset($_SESSION['correo']) && !empty($_SESSION['correo'])) {
@@ -13,16 +15,19 @@ if (isset($_SESSION['correo']) && !empty($_SESSION['correo'])) {
 if (isset($_SESSION['telefono']) && !empty($_SESSION['telefono'])) {
     $tel = $_SESSION['telefono'];
 }else{
+    $_SESSION['telefono'] = "Sin agregar";
     $tel = "Sin agregar";
 }
 if (isset($_SESSION['dom']) && !empty($_SESSION['dom'])) {
     $dom = $_SESSION['dom'];
 }else{
+    $_SESSION['dom'] = "Sin agregar";
     $dom = "Sin agregar";
 }
 if (isset($_SESSION['pago']) && !empty($_SESSION['pago'])) {
     $pago = $_SESSION['pago'];
 }else{
+    $_SESSION['pago'] = "Sin agregar";
     $pago = "Sin agregar";
 }
 
@@ -58,22 +63,7 @@ $iduser = $_SESSION['id_usuario'];
 
     <body>
         <header class="header">
-            <a href="../index.php" class="logo">
-                <img src="../imagen/logo.png" alt="" href="../index.php">
-                <a class=ketzali href="../index.php">Ketzali Piel</a>
-            </a>
-
-            <nav class="navbar">
-                <a href="../index.php">inicio</a>
-                <a href="../productos.php">productos</a>
-            </nav>
-
-            <div class="icons">
-                <div class="fas fa-search" id="search-btn"></div>
-                <a href="carrito.php"><div class="fas fa-shopping-cart" id="cart-btn"></div></a>
-                <div class="fas fa-bars" id="menu-btn"></div>
-                <div class = "fas fa-circle-user" href = "perfil.php"></div>
-            </div>
+        <?php include 'navbar.php';?>
         </header>
 
         <div class="barraDeUsuario">

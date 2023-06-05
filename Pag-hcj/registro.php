@@ -7,10 +7,6 @@ if(!empty($_POST["registro"])){
         echo '<div class="alerta">Uno de los campos está vacío</div>';
 
     }else{
-
-        
-
-
         $nombre = $_POST["nombre"];
         $apellido = $_POST["apellido"];
         $correo = $_POST["usuarioR"];

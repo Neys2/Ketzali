@@ -26,19 +26,56 @@ previewBox.forEach(close =>{
   };
 });
 
-async function agregarProducto(idProducto){
-  let productoCarrito = idProducto.split('-');
-  productoCarrito = productoCarrito.reverse();
-  productoCarrito = productoCarrito[0];
+async function agregarProducto(idProducto, opcion = 1){
+  if(opcion == 1){
+    let productoCarrito = idProducto.split('-');
+    productoCarrito = productoCarrito.reverse();
+    productoCarrito = productoCarrito[0];
 
-  const form = new FormData();
-  form.append("id",productoCarrito);
-  console.log(productoCarrito);
-  const response = await fetch('./agregarProducto.php',{
-    method: "POST",
-    body: form
-  }).then((response) => response.text())
-  .then((text) => {
-    alert(text);
-  });
+    const form = new FormData();
+    form.append("id",productoCarrito);
+    form.append("cantidad",1);
+    console.log(productoCarrito);
+    const response = await fetch('./agregarProducto.php',{
+      method: "POST",
+      body: form
+    }).then((response) => response.text())
+    .then((text) => {
+      alert(text);
+    });
+  }else if(opcion == 2){
+    //Agregar con cantidad
+    let productoCarrito = idProducto.split('-');
+    productoCarrito = productoCarrito.reverse();
+    productoCarrito = productoCarrito[0];
+
+    let cantidadProducto = document.getElementById("producto-"+productoCarrito+"-cantidad").value;
+
+    const form = new FormData();
+    form.append("id",productoCarrito);
+    form.append("cantidad",cantidadProducto);
+    console.log(productoCarrito);
+    const response = await fetch('./agregarProducto.php',{
+      method: "POST",
+      body: form
+    }).then((response) => response.text())
+    .then((text) => {
+      alert(text);
+    });
+  }else{
+    return "Error de sintáxis";
+  }
+}
+
+function mostrarPopup(mensaje) {
+  var popup = document.createElement("div");
+  popup.className = "popup";
+  popup.innerHTML = "<p>" + mensaje + "</p>";
+  document.body.appendChild(popup);
+  popup.style.display = "block";
+
+  setTimeout(function() {
+      popup.style.display = "none";
+      document.body.removeChild(popup);
+  }, 3000); // Ocultar el popup después de 3 segundos
 }

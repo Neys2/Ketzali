@@ -626,13 +626,13 @@ font-family: 'Nunito', sans-serif;*/
 }
 .dataArea p {
    font-size: large;
-   color: #640021;
+   color: #A94048;
    text-align:left;
    padding: 20px;
 }
 .dataArea h3 {
    font-size: large;
-   color: #640021;
+   color: #A94048;
    text-align:center;
    padding: 20px;
 }
@@ -691,3 +691,98 @@ td{
    display: block;
    float: right;
 }
+.error-message {
+   color: red;
+   font-weight: bold;
+}
+
+.popup {
+   height: 150px;
+   width: 100%;
+   background-color: #4e4d4d;
+   color: #ffffff;
+   padding: 20px;
+   border: 1px solid #ffffffa8;
+   border-radius: 5px;
+   z-index: 9999;
+   display: none;
+}
+
+.popup p {
+   text-align: center;
+   text-transform: uppercase;
+   font-size: 200%;
+   margin: 0;
+}
+
+.carrito {
+   margin: 0 auto; /* Centra la tabla horizontalmente */
+   width: 100%; /* Ancho de la tabla */
+   border-collapse: collapse; /* Fusiona los bordes de las celdas */
+ }
+
+ .carrito th{
+   font-size: 100%;
+   padding: 10px; /* Espacio interno de las celdas */
+   text-align: center; /* Alineación del contenido al centro */
+   border: 1px solid #ddd; /* Borde de las celdas */
+ }
+.carrito td {
+   font-size: 150%;
+   padding: 10px; /* Espacio interno de las celdas */
+   text-align: center; /* Alineación del contenido al centro */
+   border: 1px solid #ddd; /* Borde de las celdas */
+ }
+
+ .carrito button{
+   width: 20px;
+   margin: 7px;
+ }
+ .boton{
+   color: #A94048;
+ }
+ .boton:hover{
+   background-color: #ffdfdfb7;
+   transition: background-color 0.5s ease;
+ }
+
+ .fa-solid fa-trash-can{
+   font-size: x-large;
+   color:  #A94048;
+ }
+ 
+ .btnTrash:hover{
+   background-color: #ffdfdfb7;
+ }
+ 
+ .h2Compra{
+   transform:translate(45%,150px);
+ }
+ .infoCompra{
+   transform:translate(220%,170px);
+   text-align: center;
+   border-radius: 35%;
+   padding: 25px;
+   font-size:large;
+   width: 250px;
+   background-color: #ffcece;
+   color: #A94048;
+ }
+ .infoCompra p{
+   color: #A94048;
+ }
+ .boton2{
+   transform: translate(200%,190px);
+   border-radius: 15%;
+   font-weight: bold;
+   width: 20%;
+   height: 40px;
+   background: #f17a7aa8;
+   border: none;
+   color: white;
+   margin-bottom: 16px;
+ }
+ .boton2:hover{
+   background-color: #ffdfdfb7;
+   transition: background-color 0.5s ease;
+ }

@@ -29,38 +29,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 <body>
 <!--header inicia -->
 <header class="header">
-    <a href="#" class="logo">
-        <img src="imagen/logo.png" alt="">
-        <a class= ketzali href="index.php">Ketzali Piel</a>
-    </a>
-
-    <nav class="navbar">
-        <a href="index.php">inicio</a>
-        <a href="productos.php">productos</a>
-        <?php
-            if(!isset($_SESSION['id_usuario']) || empty($_SESSION['id_usuario'])){
-                echo "<a href='login.php'>login</a>";
-            }else {
-                // La sesión está iniciada, no muestra nada de login
-            }
-        ?>
-    </nav>
-
-    <div class="icons">
-        <div class="fas fa-search" id="search-btn"></div>
-        <div class="fas fa-shopping-cart" id="cart-btn"></div>
-        <div class="fas fa-bars" id="menu-btn"></div>
-        <?php
-            if(!isset($_SESSION['id_usuario']) || empty($_SESSION['id_usuario'])){
-                echo "<div class = 'fas fa-circle-user' ></div>";
-            }else {
-                // La sesión está iniciada, muestra info de perfil
-                echo "<a href='Usuario/perfil.php'>";
-                echo "<div class = 'fas fa-circle-user'></div>";
-                echo "</a>";
-            }
-        ?>
-    </div>
+<?php include 'navbar.php';?>
 </header>
 <!--header acaba -->
 
@@ -141,14 +110,11 @@ $data = "p-" . $id;
                     value="1"
                     min="1"
                     class="input-quantity"
+                    id ="producto-<?php echo $row['ID_A']?>-cantidad"
                 />
-                <!--<div class="btn-increment-decrement">
-                    <button class="increment">+</button>
-                    <button class="decrement">-</button>
-                </div>-->
             </div>
             <div class="boton-preview">
-                <button class="buy" onclick="agregarProducto('producto-<?php echo $row['nombreA']?>')">Agregar a carrito</button>
+                <button class="buy" onclick="agregarProducto('<?php echo $row['ID_A']?>',2)">Agregar a carrito</button>
             </div>
         </div>
     </div>

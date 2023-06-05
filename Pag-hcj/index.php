@@ -1,7 +1,10 @@
 <?php
-
 include 'conexion.php';
-session_start();
+if(isset($_SESSION['id_usuario']) && !empty($_SESSION['id_usuario']))
+{
+    session_start();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -22,53 +25,15 @@ session_start();
 
 </head>
 
-<!-- 
-session_start();
-if(!isset($SESSION['id_usuario'])){
-    header("Location: index.php");
-};
-?>
-
--->
-
 
 <body>
     <!--header inicia -->
     <header class="header">
-        <a href="index.php" class="logo">
-            <img src="imagen/logo.png" alt="">
-            <a class=ketzali href="index.php">Ketzali Piel</a>
-        </a>
-
-        <nav class="navbar">
-            <a href="index.php">inicio</a>
-            <a href="productos.php">productos</a>
-            <?php
-            if(!isset($_SESSION['id_usuario']) || empty($_SESSION['id_usuario'])){
-                echo "<a href='login.php'>login</a>";
-            }else {
-                // La sesión está iniciada, no muestra nada de login
-            }
-            ?>
-        </nav>
-
-        <div class="icons">
-            <div class="fas fa-search" id="search-btn"></div>
-            <div class="fas fa-shopping-cart" id="cart-btn"></div>
-            <div class="fas fa-bars" id="menu-btn"></div>
-            <?php
-            if(!isset($_SESSION['id_usuario']) || empty($_SESSION['id_usuario'])){
-                echo "<div class = 'fas fa-circle-user' ></div>";
-            }else {
-                // La sesión está iniciada, muestra info de perfil
-                echo "<a href='Usuario/perfil.php'>";
-                echo "<div class = 'fas fa-circle-user'></div>";
-                echo "</a>";
-            }
-            ?>
-        </div>
+    <?php include 'navbar.php';?>
     </header>
     <!--header acaba -->
+
+
     <div class="welcome">
         <img style="width: 100%; height: 100%;" src="imagen/welcome.jpg" alt="">
         <h1 id="welcome-titulo">¡Bienvenida a tu</h1>
@@ -76,7 +41,7 @@ if(!isset($SESSION['id_usuario'])){
         <p>Hagamos que tu piel brille con el sol</p>
     </div>
 
-    <div class="us">
+    <div class="us" id="us">
     <h2 id="ustitulo">Nuestra filosofía</h2>
     <p id="usp">Nuestra empresa se fundamenta en una filosofía centrada en la excelencia, la orientación al cliente y la innovación.
         Valoramos la responsabilidad social y ambiental, promovemos el trabajo en equipo y el respeto mutuo, y actuamos con integridad y ética en todas nuestras acciones.</p>

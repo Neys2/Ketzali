@@ -16,6 +16,7 @@ if(session_status() == PHP_SESSION_NONE)
     <a href="index.php">inicio</a>
     <a href="productos.php">productos</a>
     <a href="index.php#us">nosotros</a>
+    <a href="index.php#comunica">contáctenos</a>
     <?php
     if (!isset($_SESSION['id_usuario']) && empty($_SESSION['id_usuario'])) {
         echo "<a href='login.php'>login</a>";
@@ -24,7 +25,6 @@ if(session_status() == PHP_SESSION_NONE)
 </nav>
 
 <div class="icons">
-    <div class="fas fa-search" id="search-btn"></div>
     <?php
     if (isset($_SESSION['id_usuario']) && !empty($_SESSION['id_usuario'])) {
         echo "<a href='Usuario/carrito.php'><div class='fas fa-shopping-cart' id='cart-btn'></div></a>";

@@ -110,14 +110,11 @@ $data = "p-" . $id;
                     value="1"
                     min="1"
                     class="input-quantity"
+                    id ="producto-<?php echo $row['ID_A']?>-cantidad"
                 />
-                <!--<div class="btn-increment-decrement">
-                    <button class="increment">+</button>
-                    <button class="decrement">-</button>
-                </div>-->
             </div>
             <div class="boton-preview">
-                <button class="buy" onclick="agregarProducto('producto-<?php echo $row['nombreA']?>')">Agregar a carrito</button>
+                <button class="buy" onclick="agregarProducto('<?php echo $row['ID_A']?>',2)">Agregar a carrito</button>
             </div>
         </div>
     </div>

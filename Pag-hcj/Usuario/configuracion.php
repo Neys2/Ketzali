@@ -39,12 +39,14 @@ session_start();
 
         <div class="dataArea">
             <h3>EDITAR INFORMACION</h3>
-            <form action="#" method="post">
+            <form action="../actualizarInfo.php" method="post">
             <input class="control" type="text" name="nombre" id="nombre" placeholder="Nombre"><br>
-            <input class="control" type="text" name="apellido" id="apellido" placeholder="Apellido"><br>
-            <input class="control" type="text" name="usuarioR" id="usuarioR" placeholder="Correo"><br>
-            <input class="control" type="password" name="contraseniaR" id="contraseniaR" placeholder="Contraseña"><br><br>
-            <input class="boton" type="submit" value="Cambiar datos">
+            <input class="control" type="text" name="correo" id="correo" placeholder="Correo"><br>
+            <input class="control" type="password" name="contraseniaR" id="contraseniaR" placeholder="Contraseña"><br>
+            <input class="control" type="text" name="telefono" id="telefono" placeholder="Telefono">
+            <input class="control" type="text" name="domicilio" id="domicilio" placeholder="Domicilio">
+            <input class="control" type="text" name="tarjeta" id="tarjeta" placeholder="Tarjeta"><br>
+            <input class="boton" type="submit" value="Cambiar datos" name="actualizar">
         </form>
         </div>
     </body>

@@ -711,7 +711,7 @@ td{
 .popup p {
    text-align: center;
    text-transform: uppercase;
-   font-size: 200%;
+   font-size:x-large;
    margin: 0;
 }
 
@@ -719,6 +719,7 @@ td{
    margin: 0 auto; /* Centra la tabla horizontalmente */
    width: 100%; /* Ancho de la tabla */
    border-collapse: collapse; /* Fusiona los bordes de las celdas */
+   font-size: large;
  }
 
  .carrito th{
@@ -785,4 +786,8 @@ td{
  .boton2:hover{
    background-color: #ffdfdfb7;
    transition: background-color 0.5s ease;
+ }
+ .thks{
+   transform: translate(50%, 50%);
+   font-family: 'Rubik Iso', cursive;
  }

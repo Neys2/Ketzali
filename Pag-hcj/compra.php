@@ -58,26 +58,28 @@ $pago = $_SESSION['pago'];
 
     </div>
     <div>
-    <?php
+        <?php
         echo "
         <button class ='boton2' onclick=hacerPago($totalCompra)>Pagar</button><br>";
+        
         ?>
     </div>
 
     <script>
-        
         function hacerPago(costo) {
-            alert(costo);
             const form = new FormData();
             form.append("total", costo);
-            fetch('../pagar.php', {
+            fetch('pagar.php', {
                     method: "POST",
                     body: form
                 }).then((response) => response.text())
                 .then((text) => {
-                    alert("Pago realizado");
+                    alert(text);
+                    if(text == "Compra realizada"){
+                        window.location.href = "gracias.php";
+                    }
                 });
-            }
+        }
     </script>
 
 

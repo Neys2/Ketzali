@@ -2,34 +2,25 @@
 
 include '../conexion.php';
 session_start();
+$db = new Conexion();
+$con = $db->conectar();
+$id = $_SESSION['id_usuario'];
+
+$sql = $con->prepare("SELECT * FROM usuario WHERE ID_U = $id");
+$sql->execute();
+$resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 if (isset($_SESSION['id_usuario']) && !empty($_SESSION['id_usuario'])) {
     $iduser = $_SESSION['id_usuario'];
-}else{
+} else {
     header("Location:../login.php");
 }
 
-if (isset($_SESSION['correo']) && !empty($_SESSION['correo'])) {
-    $email = $_SESSION['correo'];
-}
-if (isset($_SESSION['telefono']) && !empty($_SESSION['telefono'])) {
-    $tel = $_SESSION['telefono'];
-}else{
-    $_SESSION['telefono'] = "Sin agregar";
-    $tel = "Sin agregar";
-}
-if (isset($_SESSION['dom']) && !empty($_SESSION['dom'])) {
-    $dom = $_SESSION['dom'];
-}else{
-    $_SESSION['dom'] = "Sin agregar";
-    $dom = "Sin agregar";
-}
-if (isset($_SESSION['pago']) && !empty($_SESSION['pago'])) {
-    $pago = $_SESSION['pago'];
-}else{
-    $_SESSION['pago'] = "Sin agregar";
-    $pago = "Sin agregar";
-}
+$name = $resultado[0]['nombreU'];
+$tel = $resultado[0]['telefono'];
+$email = $resultado[0]['correoU'];
+$pago = $resultado[0]['tarjeta'];
+$dom = $resultado[0]['domicilio'];
 
 
 ?>
@@ -63,7 +54,7 @@ $iduser = $_SESSION['id_usuario'];
 
     <body>
         <header class="header">
-        <?php include 'navbar.php';?>
+            <?php include 'navbar.php'; ?>
         </header>
 
         <div class="barraDeUsuario">
@@ -77,21 +68,17 @@ $iduser = $_SESSION['id_usuario'];
         </div>
         <div class="dataArea">
             <?php
-            if (isset($_SESSION['name']) && !empty($_SESSION['name'])) {
-                $name = $_SESSION['name'];
                 echo "<div class='pSection'>
                 <h1>HOLA, $name</h1>
                 </div>";
-            }
             ?>
 
             <div class="pSection">
                 <h3>DATOS PERSONALES</h3>
                 <?php
-                echo '<p>Nombre:'.$name.'</p>
-                <p>Telefono:'.$tel.'</p>
-                <p>Correo:'.$email.'</p>
-                <button type = submit; class ="boton"; >Agregar telefono</button>';
+                echo '<p>Nombre:' . $name . '</p>
+                <p>Telefono:' . $tel . '</p>
+                <p>Correo:' . $email . '</p>'
                 ?>
                 <hr>
             </div>
@@ -99,9 +86,7 @@ $iduser = $_SESSION['id_usuario'];
                 <h3>DOMICILIOS</h3>
                 <?php
                 echo '<div class="minSection";>
-                <p>'.$dom.'<\p>
-                <button type = submit; class ="boton"; >Agregar domicilio</button>
-                <br></div>';
+                <p>' . $dom . '<\p></div>';
                 ?>
                 <hr>
             </div>
@@ -109,9 +94,7 @@ $iduser = $_SESSION['id_usuario'];
                 <h3>INFORMACION DE PAGO</h3>
                 <?php
                 echo '<div class = "minSection";> 
-                <p>Tarjeta: '.$pago.' <\p>
-                <button type = submit; class ="boton"; >Agregar tarjeta</button>
-                <br>
+                <p>Tarjeta: ' . $pago . ' <\p><br>
                 </div>';
                 ?>
                 <hr>

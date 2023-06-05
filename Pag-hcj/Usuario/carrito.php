@@ -6,7 +6,6 @@ $db = new Conexion();
 $con = $db->conectar();
 
 $usuario = $_SESSION['id_usuario'];
-var_dump($usuario);
 $sql = $con->prepare("SELECT * FROM Carrito WHERE fkUsuario = $usuario AND fkVenta IS NULL");
 if ($sql->execute()) {
     $productosCarrito = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -83,6 +82,11 @@ if ($sql->execute()) {
                     if (!file_exists($imagen)) {
                         $imagen = "imagen/noimage.jpg";
                     }
+                    $sql = $con->prepare("SELECT * FROM Carrito WHERE fkArticulo = $idArticulo  AND fkUsuario = $usuario AND fkVenta IS NULL");
+                    if ($sql->execute()) {
+                        $carrito2 = $sql->fetchAll(PDO::FETCH_ASSOC);
+                        $subtotal = $articulo[0]['precio'] * $carrito2[0]['cantidadArt'];
+                    }
                     $stock =  $articulo[0]['cantidad'];
                     $botonesCantidad = "<button onclick = decrementar($idArticulo)> - </button>";
                     $botonesCantidad .= "<span id='$idArticulo-cantidad'>$cantidad</span>";
@@ -92,8 +96,7 @@ if ($sql->execute()) {
                     $listaCarrito .= "<td>" . $articulo[0]['descripcion'] . "</td>";
                     $listaCarrito .= "<td>" . $articulo[0]['precio'] . "</td>";
                     $listaCarrito .= "<td>" . $botonesCantidad . "</td>";
-                    $subtotal = $articulo[0]['precio']*$cantidad;
-                    $total = $total+$subtotal;
+                    $total = $total + $subtotal;
                     $listaCarrito .= "<td><span id='subtotal'>$subtotal</span></td>";
                     $listaCarrito .= "<td>" . "<i onclick = eliminar($idArticulo) class='fa-solid fa-trash-can'></i>" . "</td>";
                     $listaCarrito .= "</tr>";
@@ -126,6 +129,7 @@ if ($sql->execute()) {
                         }).then((response) => response.text())
                         .then((text) => {
                             quantityElement.textContent = (quantity - 1).toString();
+                            location. reload()
                         });
                 }
             }
@@ -143,6 +147,7 @@ if ($sql->execute()) {
                         }).then((response) => response.text())
                         .then((text) => {
                             quantityElement.textContent = (quantity + 1).toString();
+                            location. reload()
                         });
                 } else {
                     alert("El producto se ha agotado");
@@ -161,7 +166,7 @@ if ($sql->execute()) {
                     }).then((response) => response.text())
                     .then((text) => {
                         productRow.remove()
-                        recalculateNoProducts()
+                        location. reload()
                     });
             }
         </script>

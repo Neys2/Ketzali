@@ -6,7 +6,7 @@ $con = $db->conectar();
 $usuario = $_SESSION['id_usuario'];
 $idArticulo = $_POST['id'];
 
-$sql = $con->prepare("UPDATE Carrito SET cantidadArt = cantidadArt - 1 where fkArticulo = ".$idArticulo);
+$sql = $con->prepare("UPDATE Carrito SET cantidadArt = cantidadArt - 1 where fkUsuario = $usuario AND fkArticulo = $idArticulo AND fkVenta IS NULL");
             if($sql->execute()){
                 echo "Cantidad del artículo reducida";
                 return;

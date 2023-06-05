@@ -47,6 +47,16 @@ if(isset($_SESSION['id_usuario']) && !empty($_SESSION['id_usuario']))
         Valoramos la responsabilidad social y ambiental, promovemos el trabajo en equipo y el respeto mutuo, y actuamos con integridad y ética en todas nuestras acciones.</p>
     </div>
 
+    <div class="us22">
+    <p id="usp2">Proporcionar productos de alta calidad para el cuidado de la piel, que promuevan la salud y el bienestar de nuestros clientes. Nos comprometemos a ofrecer soluciones efectivas y seguras para mejorar la apariencia y la salud de la piel, utilizando ingredientes naturales y tecnologías innovadoras.</p>
+    <h2 id="ustitulo2">Nuestra misión</h2>    
+    </div>
+
+    <div class="us" >
+    <h2 id="ustitulo">Nuestra visión</h2>
+    <p id="usp">Convertirnos en una empresa reconocida a nivel mundial en el campo de los productos para el cuidado de la piel, siendo referentes en calidad, innovación y resultados visibles. Aspiramos a ser la elección preferida de los consumidores que buscan una piel saludable y radiante, a través de una amplia gama de productos que aborden diversas preocupaciones y necesidades.</p>
+    </div>
+
         <div class="products">
             <h3>Nuestros productos</h3>
          <div class="pimg">
@@ -78,7 +88,7 @@ if(isset($_SESSION['id_usuario']) && !empty($_SESSION['id_usuario']))
 </body>
 
 <footer>
-    <div class="comunicate">
+    <div class="comunicate" id="comunica">
         <div class="comunicate-box">
             <h5>¿Tienes dudas?</h5>
             <p>¡Comunicate con nosotras !</p>

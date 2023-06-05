@@ -436,13 +436,37 @@ font-family: 'Nunito', sans-serif;*/
    align-items: center;
    color: #A24E4E;
 }
-.us [id="ustitulo"]{
+.us22{
+   position: relative;
+   width: 100%;
+   border:none;
+   height: 850px;
+   background-color: #cecbcb;
+   font-family: 'Nunito', sans-serif;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   color: #A24E4E;
+}
+[id="ustitulo"]{
    font-size: 45px;
    text-align: center;
    margin: 10px;
    padding: 200px;
 }
-.us [id="usp"]{
+[id="usp"]{
+   font-size: 20px;
+   text-align: center;
+   margin: 10px;
+   padding: 90px;
+}
+[id="ustitulo2"]{
+   font-size: 45px;
+   text-align: center;
+   margin: 10px;
+   padding: 200px;
+}
+[id="usp2"]{
    font-size: 20px;
    text-align: center;
    margin: 10px;

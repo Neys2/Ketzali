@@ -61,7 +61,7 @@ foreign key (fkVenta) references Venta(ID_V) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 
-Insert into Usuario values(1,'Karen Carrillo Guzman','123','admi18@gmail.com','2294565467','7645673298745687','Mar #23');
+Insert into Usuario values(1,'Karen Carrillo Guzman','123','admin18@gmail.com','2294565467','7645673298745687','Mar #23');
 Insert into Usuario values(2,'Carlota Guzman Gamboa','123','carlgg@gmail.com','2297647658','1285438766549876','Vista mar #87');
 Insert into Usuario values(3,'Tomas Carrillo Munive','8po7nhyt67','tomass2@gmail.com','2292456785','9977542765437654','Arboledas #45');
 Insert into Usuario values(4,'Arturo Avalos Guzman','976hvbg452','artur4@gmail.com','2298674376','2278564367895645','Jblobos #45');
@@ -99,16 +99,16 @@ Select*from Proveedor;
 
 /*delete from Proveedor;*/
 
-Insert into Articulo values(1,1,'cerave','165','323.87','crema para el cuidado de la piel grasa','Cremas');
-Insert into Articulo values(2,2,'dove','165','254.34','jabon para baño','Organicos');
-Insert into Articulo values(3,3,'neutrogena','165','453.87','gel a base de agua para piel seca','Aceites');
-Insert into Articulo values(4,4,'eucerin','164','132.67','valsamo para la piel','Aceites');
-Insert into Articulo values(5,5,'palmolive','184','216.78','shampoo para el cabello','Organicos');
-Insert into Articulo values(6,7,'L´oreal','157','89.54','crema para piel','Cremas');
-Insert into Articulo values(7,6,'nivea','156','398.76','protector solar','Cremas');
-Insert into Articulo values(8,8,'armonia','165','498.87','gel hidratante de piel','Aceites');
-Insert into Articulo values(9,9,'ISDIN','175','234.76','fotoprotector solar','Organicos');
-Insert into Articulo values(10,10,'sothys','156','134.43','mascara iluminadora','Organicos');
+Insert into Articulo values(1,1,'cerave','165','323.87','Es un producto de cuidado dermatológico diseñado para proporcionar hidratación intensa y restaurar la barrera protectora natural de la piel. Formulada con ingredientes clave y respaldada por la experiencia de dermatólogos.','Cremas');
+Insert into Articulo values(2,2,'dove','165','254.34','Es un producto excepcional diseñado para ofrecerte una experiencia de baño única y refrescante. Con su fórmula suave y enriquecida, este jabón líquido brinda un cuidado profundo para tu piel, dejándola suave, hidratada y radiante.','Organicos');
+Insert into Articulo values(3,3,'neutrogena','165','453.87','Diseñado específicamente para tratar y aliviar la sequedad cutánea. Formulado por expertos dermatológicos, este gel ofrece una hidratación intensa y duradera, dejando la piel suave, tersa y profundamente nutrida.','Aceites');
+Insert into Articulo values(4,4,'eucerin','164','132.67','Cuidado dermatológico especialmente formulado para brindar una hidratación profunda y duradera a tu piel. Este bálsamo rico y cremoso está diseñado para proporcionar una protección intensa y aliviar la sequedad y el malestar cutáneo.','Aceites');
+Insert into Articulo values(5,5,'palmolive','184','216.78','Este champú ha sido cuidadosamente desarrollado por expertos para abordar las necesidades específicas de tu cabello, proporcionando una experiencia de cuidado capilar excepcional.','Organicos');
+Insert into Articulo values(6,7,'L´oreal','157','89.54','Está diseñada para brindar una hidratación intensa y duradera. Formulada con ingredientes cuidadosamente seleccionados, esta crema ofrece beneficios excepcionales para todo tipo de piel.','Cremas');
+Insert into Articulo values(7,6,'nivea','156','398.76','Es un producto de vanguardia diseñado para brindar una máxima protección contra los dañinos rayos UVA y UVB del sol. Esta fórmula avanzada ha sido desarrollada por expertos en cuidado de la piel para garantizar una defensa efectiva','Cremas');
+Insert into Articulo values(8,8,'armonia','165','498.87','Este gel ligero y refrescante es perfecto para todo tipo de piel, desde seca hasta grasa, y está especialmente formulado para proporcionar una hidratación profunda sin dejar sensación grasosa.','Aceites');
+Insert into Articulo values(9,9,'ISDIN','175','234.76','Diseñado para brindarte la mejor protección contra los dañinos rayos solares. Con una fórmula avanzada y de alta calidad, este producto se convertirá en tu mejor aliado en la lucha contra los efectos nocivos del sol.','Organicos');
+Insert into Articulo values(10,10,'sothys','156','134.43','Es un producto revolucionario diseñado para resaltar y realzar la belleza natural de tu rostro. Esta mascarilla iluminadora ofrece múltiples beneficios para tu piel, brindando un aspecto radiante y juvenil en tan solo unos minutos.','Organicos');
 Insert into Articulo values(11,6,'Mascarilla para el cuello',150,178.99,'Producto de importación, Esta mezcla especial hidrata y repone su piel dándole una apariencia suave y flexible.','Organicos');
 Insert into Articulo values(12,10,'Rodillo de hielo para masaje facial',200,253.22,'El producto es ampliamente utilizado en antiarrugas y elimina las líneas finas para suavizar la piel. reducir los poros y refrescar su piel sin productos químicos.','Organicos');
 Insert into Articulo values(13,7,'Máscara Comprimida',644,154.23,'Hecho de tela no tejida de alta calidad, suave, delicada y sin irritación.','Organicos');
@@ -117,8 +117,8 @@ Insert into Articulo values(15,9,'Masajeador facial anti-arrugas',203,218.23,'A 
 Insert into Articulo values(16,6,'Suero Facial',150,222.99,'Los ingredientes principales son el polisacárido tremella fuciformis, el arándano y otros extractos de frutas que brindan diferentes efectos. humedece profundamente y repara la piel dañada.','Tonificadores');
 Insert into Articulo values(17,10,'Botella de Spray de Perfume Recargable',200,219.22,'Adecuado para uso en viajes: peso ligero, puede ponerlo en su maleta, mochila, bolsa de mensajero, etc., muy adecuado para uso en viajes.','Aceites');
 Insert into Articulo values(18,7,'Set de Cuidado de la Piel con Vitamina C',644,2588.23,'Hecho de tela no tejida de alta calidad, suave, delicada y sin irritación.','Tonificadores');
-Insert into Articulo values(19,8,'Crema Blanqueadora Antiarrugas Para Ojos',300,44.14,'Reduce visiblemente la apariencia de las manchas de la edad en solo 4 semanas.','Cremas');
-Insert into Articulo values(20,9,'Crema iluminadora para el cuidado de la piel',203,154.23,'Crema iluminadora para el cuidado de la piel.','Cremas');
+Insert into Articulo values(19,8,'Crema Blanqueadora Antiarrugas Para Ojos',300,44.14,'Producto que reduce visiblemente la apariencia de las manchas de la edad en solo 4 semanas.','Cremas');
+Insert into Articulo values(20,9,'Crema iluminadora para el cuidado de la piel',203,154.23,'Esta crema ha sido cuidadosamente formulada con ingredientes de alta calidad para proporcionar beneficios excepcionales para tu piel.','Cremas');
 Select*from Articulo;
 
 /*delete from Articulo;*/
@@ -198,7 +198,7 @@ Insert into Venta values(21,16,1753.76,'2023-02-22','Tarjeta de debito');
 Insert into Carrito values(8,7,17,21);
 
 Insert into Venta values(22,12,3026.67,'2023-02-22','Tarjeta de debito');
-Insert into Carrito values(2,438.44,17,22);
+Insert into Carrito values(2,4,17,22);
 Insert into Carrito values(1,5,18,22);
 
 Insert into Venta values(23,17,2676.51,'2023-02-22','Tarjeta de debito');
@@ -282,8 +282,8 @@ AFTER INSERT ON Venta
 FOR EACH ROW
 BEGIN
     UPDATE Carrito
-    set  Carrito.fkVenta = NEW.ID_V;
-    WHERE Carrito.fkArticulo = New.fkArticulo AND Carrito.fkVenta = NULL; 
+    set  Carrito.fkVenta = NEW.ID_V
+    WHERE Carrito.fkUsuario = New.fkID_U AND Carrito.fkVenta IS NULL;
 END$$
 DELIMITER ;
 

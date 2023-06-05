@@ -6,7 +6,7 @@ $db = new Conexion();
 $con = $db->conectar();
 $id = $_SESSION['id_usuario'];
 
-$sql = $con->prepare("SELECT * FROM usuario WHERE ID_U = $id");
+$sql = $con->prepare("SELECT * FROM usuario WHERE ID_U = '" . $id . "'");
 $sql->execute();
 $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 

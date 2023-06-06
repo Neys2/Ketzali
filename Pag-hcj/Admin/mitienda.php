@@ -157,17 +157,25 @@ if(isset($_GET['delete'])){
             <div class="admin-product-form-container">
 
                 <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
-                   <h3>Agregar nuevo producto</h3>
+                   <h3>Agregar nuevo Producto</h3>
                    <input type="text" placeholder="Ingrese nombre de producto" name="product_name" class="box">
                    <input type="number" min="1" step="any" placeholder="Ingrese precio de producto" name="product_price" class="box">
                    <input type="number" min="1" placeholder="Ingrese cantidad de producto" name="product_cantidad" class="box">
                    <input type="text" placeholder="Ingrese descripción del producto" name="product_desc" class="box">
-                   <input type="file" accept="image/png, image/jpeg, image/jpg" name="product_image" class="box">
+                   <h2>Selecciona Imagen del producto</h2>
+				   <input type="file" accept="image/png, image/jpeg, image/jpg" name="product_image" class="box">
+				   <h2>Selecciona Proovedor</h2>
 				   <select name="opciones" class="box">
 				   <?php while($row = mysqli_fetch_assoc($result)){ ?>
   						<option value="<?php echo $row['nombreP']; ?>"><?php echo $row['nombreP']; ?></option>
 					<?php } ?>
 					</select>
+					<h2>Selecciona Categoria</h2>
+					<select name="opcion" class="box">
+					<option value="">Organicos</option>
+					<option value="">Aceites Rehidratantes</option>
+					<option value="">Cremas Hidratantes</option>
+					<option value="">Tonificadores</option>
                    <input type="submit" class="btn" name="add_product" value="Agregar Producto">
                 </form>
           

@@ -158,12 +158,20 @@ if(isset($_POST['update_product'])){
                    <input type="number" min="1" step="any" class="box" name="product_price" value="<?php echo $row['precio']; ?>" placeholder="Introduce el precio">
                    <input type="number" min="1" class="box" name="product_cantidad" value="<?php echo $row['cantidad']; ?>" placeholder="Introduce la cantidad">
                    <input type="text" class="box" name="product_desc" value="<?php echo $row['descripcion']; ?>" placeholder="Introduce la descripción del producto">
-                   <input type="file" class="box" name="product_image"  accept="image/png, image/jpeg, image/jpg">
+                   <h2>Selecciona Imagen del producto</h2>
+				   <input type="file" class="box" name="product_image"  accept="image/png, image/jpeg, image/jpg">
+				   <h2>Selecciona Proovedor</h2>
 				   <select name="opciones" class="box">
 				    <?php while($row = mysqli_fetch_assoc($result)){ ?>
   						<option value="<?php echo $row['nombreP']; ?>"><?php echo $row['nombreP']; ?></option>
 					<?php } ?>
 					</select>
+					<h2>Selecciona Categoria</h2>
+					<select name="opcion" class="box">
+					<option value="">Organicos</option>
+					<option value="">Aceites Rehidratantes</option>
+					<option value="">Cremas Hidratantes</option>
+					<option value="">Tonificadores</option>
                    <input type="submit" value="Actualizar producto" name="update_product" class="btn">
                    <a href="mitienda.php" class="btn">Regresar</a>
                 </form>   

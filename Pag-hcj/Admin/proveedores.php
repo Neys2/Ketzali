@@ -130,7 +130,7 @@ if(isset($_GET['delete'])){
                 <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
                    <h3>Agregar nuevo proveedor</h3>
                    <input type="text" placeholder="Ingrese nombre de proveedor" name="prov_name" class="box">
-                   <input type="text" placeholder="Ingrese correo de proveedor" name="prov_correo" class="box" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
+                   <input type="email" placeholder="Ingrese correo de proveedor" name="prov_correo" class="box" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
                    <input type="submit" class="btn" name="add_proveedor" value="Agregar Proveedor">
                 </form>
           

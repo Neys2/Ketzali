@@ -132,7 +132,7 @@ if(isset($_POST['update_prov'])){
                 <form action="" method="post" enctype="multipart/form-data">
                    <h3 class="title">Actualizar Proveedor</h3>
                    <input type="text" class="box" name="prov_name" value="<?php echo $row['nombreP']; ?>" placeholder="Introduce el nombre del proveedor">
-                   <input type="text" class="box" name="prov_correo" value="<?php echo $row['correoP']; ?>" placeholder="Introduce el correo del proveedor" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>                  
+                   <input type="email" class="box" name="prov_correo" value="<?php echo $row['correoP']; ?>" placeholder="Introduce el correo del proveedor" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>                  
                    <input type="submit" value="Actualizar proveedor" name="update_prov" class="btn">
                    <a href="proveedores.php" class="btn">Regresar</a>
                 </form>   

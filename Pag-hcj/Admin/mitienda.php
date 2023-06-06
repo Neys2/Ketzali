@@ -19,11 +19,12 @@ if(isset($_POST['add_product'])){
 	$con = $db->conectar();
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$opcionSeleccionada = $_POST["opciones"];
+		$opcionSeleccion = $_POST["opcion"];
 		$prov = mysqli_query($conexion,"SELECT ID_P FROM proveedor where nombreP = '" . $opcionSeleccionada . "'");
 		$row = $prov->fetch_assoc();
 		$idp = $row["ID_P"];
 	}
-	$sql = $con->prepare("INSERT INTO articulo(fkID_P,nombreA, cantidad, precio, descripcion) VALUES('$idp','$product_name', '$product_cantidad', '$product_price', '$product_desc')");
+	$sql = $con->prepare("INSERT INTO articulo(fkID_P,nombreA, cantidad, precio, descripcion, categoria) VALUES('$idp','$product_name', '$product_cantidad', '$product_price', '$product_desc','$opcionSeleccion')");
     $band = $sql->execute();
       if($band == 1){
 		 $ultimor = mysqli_query($conexion,"SELECT MAX(ID_A) AS ultimoID FROM articulo");
@@ -160,7 +161,7 @@ if(isset($_GET['delete'])){
                    <h3>Agregar nuevo Producto</h3>
                    <input type="text" placeholder="Ingrese nombre de producto" name="product_name" class="box">
                    <input type="number" min="1" step="any" placeholder="Ingrese precio de producto" name="product_price" class="box">
-                   <input type="number" min="1" placeholder="Ingrese cantidad de producto" name="product_cantidad" class="box">
+                   <input type="number" min="150" placeholder="Ingrese cantidad de producto" name="product_cantidad" class="box">
                    <input type="text" placeholder="Ingrese descripción del producto" name="product_desc" class="box">
                    <h2>Selecciona Imagen del producto</h2>
 				   <input type="file" accept="image/png, image/jpeg, image/jpg" name="product_image" class="box">
@@ -172,10 +173,11 @@ if(isset($_GET['delete'])){
 					</select>
 					<h2>Selecciona Categoria</h2>
 					<select name="opcion" class="box">
-					<option value="">Organicos</option>
-					<option value="">Aceites Rehidratantes</option>
-					<option value="">Cremas Hidratantes</option>
-					<option value="">Tonificadores</option>
+					<option value="organicos">Organicos</option>
+					<option value="aceites">Aceites Rehidratantes</option>
+					<option value="cremas">Cremas Hidratantes</option>
+					<option value="tonificadores">Tonificadores</option>
+					</select>
                    <input type="submit" class="btn" name="add_product" value="Agregar Producto">
                 </form>
           

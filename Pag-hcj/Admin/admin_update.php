@@ -20,11 +20,12 @@ if(isset($_POST['update_product'])){
 	$con = $db->conectar();
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$opcionSeleccionada = $_POST["opciones"];
+		$opcionSeleccion = $_POST["opcion"];
 		$prov = mysqli_query($conexion,"SELECT ID_P FROM proveedor where nombreP = '" . $opcionSeleccionada . "'");
 		$row = $prov->fetch_assoc();
 		$idp = $row["ID_P"];
 	}
-	$sql = $con->prepare("UPDATE articulo SET fkID_P='$idp',nombreA='$product_name', cantidad='$product_cantidad', precio='$product_price', descripcion='$product_desc' WHERE ID_A = '$id'");
+	$sql = $con->prepare("UPDATE articulo SET fkID_P='$idp',nombreA='$product_name', cantidad='$product_cantidad', precio='$product_price', descripcion='$product_desc', categoria='$opcionSeleccion'  WHERE ID_A = '$id'");
     $band = $sql->execute();
       if($band == 1){
 		 $carpetaDestino = "../imagen/productos/";
@@ -156,7 +157,7 @@ if(isset($_POST['update_product'])){
                    <h3 class="title">Actualizar Producto</h3>
                    <input type="text" class="box" name="product_name" value="<?php echo $row['nombreA']; ?>" placeholder="Introduce el nombre del producto">
                    <input type="number" min="1" step="any" class="box" name="product_price" value="<?php echo $row['precio']; ?>" placeholder="Introduce el precio">
-                   <input type="number" min="1" class="box" name="product_cantidad" value="<?php echo $row['cantidad']; ?>" placeholder="Introduce la cantidad">
+                   <input type="number" min="150" class="box" name="product_cantidad" value="<?php echo $row['cantidad']; ?>" placeholder="Introduce la cantidad">
                    <input type="text" class="box" name="product_desc" value="<?php echo $row['descripcion']; ?>" placeholder="Introduce la descripción del producto">
                    <h2>Selecciona Imagen del producto</h2>
 				   <input type="file" class="box" name="product_image"  accept="image/png, image/jpeg, image/jpg">
@@ -168,10 +169,11 @@ if(isset($_POST['update_product'])){
 					</select>
 					<h2>Selecciona Categoria</h2>
 					<select name="opcion" class="box">
-					<option value="">Organicos</option>
-					<option value="">Aceites Rehidratantes</option>
-					<option value="">Cremas Hidratantes</option>
-					<option value="">Tonificadores</option>
+					<option value="organicos">Organicos</option>
+					<option value="aceites">Aceites Rehidratantes</option>
+					<option value="cremas">Cremas Hidratantes</option>
+					<option value="tonificadores">Tonificadores</option>
+					</select>
                    <input type="submit" value="Actualizar producto" name="update_product" class="btn">
                    <a href="mitienda.php" class="btn">Regresar</a>
                 </form>   
